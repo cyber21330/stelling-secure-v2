@@ -19,14 +19,14 @@ import { WhatsAppFab } from '../components/stelling/WhatsAppFab';
   <Navbar client:load />
   <main style="position:relative; z-index:1;">
     <Hero client:load />
-    <Services client:load />
-    <WhyUs client:load />
-    <Process client:load />
-    <Stats client:load />
-    <FAQ client:load />
-    <Contact client:load />
+    <Services client:visible />
+    <WhyUs client:visible />
+    <Process client:visible />
+    <Stats client:visible />
+    <FAQ client:visible />
+    <Contact client:visible />
   </main>
-  <Footer client:load />
-  <StickyCTA client:load />
-  <WhatsAppFab client:load />
+  <Footer client:visible />
+  <StickyCTA client:idle />
+  <WhatsAppFab client:idle />
 </Layout>
