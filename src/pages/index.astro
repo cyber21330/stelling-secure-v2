@@ -1,17 +1,32 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import { CustomCursor } from '../components/stelling/CustomCursor';
+import { Navbar } from '../components/stelling/Navbar';
+import { Hero } from '../components/stelling/Hero';
+import { Services } from '../components/stelling/Services';
+import { WhyUs } from '../components/stelling/WhyUs';
+import { Process } from '../components/stelling/Process';
+import { Stats } from '../components/stelling/Stats';
+import { FAQ } from '../components/stelling/FAQ';
+import { Contact } from '../components/stelling/Contact';
+import { Footer } from '../components/stelling/Footer';
+import { StickyCTA } from '../components/stelling/StickyCTA';
+import { WhatsAppFab } from '../components/stelling/WhatsAppFab';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <CustomCursor client:load />
+  <Navbar client:load />
+  <main style="position:relative; z-index:1;">
+    <Hero client:load />
+    <Services client:load />
+    <WhyUs client:load />
+    <Process client:load />
+    <Stats client:load />
+    <FAQ client:load />
+    <Contact client:load />
+  </main>
+  <Footer client:load />
+  <StickyCTA client:load />
+  <WhatsAppFab client:load />
+</Layout>
