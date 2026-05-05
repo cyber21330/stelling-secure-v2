@@ -181,12 +181,11 @@ export const Navbar = () => {
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#00E5FF")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#F0EEF8")}
                 style={{
-                  fontFamily: "'Dune Rise', sans-serif",
-                  fontSize: 36,
-                  color: "#F0EEF8",
-                  fontWeight: 400,
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 32,
+                  fontWeight: 300,
                   textTransform: "uppercase",
-                  letterSpacing: "0.05em",
+                  letterSpacing: "0.2em",
                   background: "none",
                   border: "none",
                 }}
