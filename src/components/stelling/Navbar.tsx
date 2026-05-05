@@ -178,6 +178,8 @@ export const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
                 onClick={() => handleClick(l.id)}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "#00E5FF")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#F0EEF8")}
                 style={{
                   fontFamily: "'Dune Rise', sans-serif",
                   fontSize: 36,
