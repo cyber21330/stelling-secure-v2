@@ -179,10 +179,12 @@ export const Navbar = () => {
                 transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
                 onClick={() => handleClick(l.id)}
                 style={{
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: 44,
+                  fontFamily: "'Dune Rise', sans-serif",
+                  fontSize: 36,
                   color: "#F0EEF8",
-                  fontWeight: 700,
+                  fontWeight: 400,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.05em",
                   background: "none",
                   border: "none",
                 }}
