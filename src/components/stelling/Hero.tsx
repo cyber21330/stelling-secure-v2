@@ -40,6 +40,7 @@ export const Hero = () => {
       style={{
         position: "relative",
         width: "100%",
+        overflowX: "hidden", 
         minHeight: isMobile ? "auto" : "100vh",
         display: "flex",
         alignItems: "center",
@@ -77,10 +78,10 @@ export const Hero = () => {
           style={{
             fontFamily: "'Dune Rise', sans-serif",
             fontWeight: 400,
-            fontSize: isMobile ? "clamp(32px, 10vw, 44px)" : "clamp(40px, 7vw, 72px)",
-            letterSpacing: "0.05em",
+            fontSize: isMobile ? "clamp(20px, 6vw, 26px)" : "clamp(40px, 7vw, 72px)",
+            lletterSpacing: isMobile ? "0.01em" : "0.05em",
             textTransform: "uppercase",
-            lineHeight: isMobile ? 1.1 : 1.02,
+            lineHeight: isMobile ? 1.15 : 1.02,
             margin: 0,
           }}
         >
