@@ -10,9 +10,17 @@ const links = [
 ];
 
 export const Navbar = () => {
+  const [isMobile, setIsMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -69,19 +77,13 @@ export const Navbar = () => {
             aria-label="Stelling Secure — inicio"
           >
             <Logo size={28} />
-            <span style={{
-              fontFamily: "'JetBrains Mono', monospace",
-              fontSize: 13,
-              fontWeight: 600,
-              letterSpacing: "0.15em",
-              color: "#F0EEF8",
-            }}>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, fontWeight: 600, letterSpacing: "0.15em", color: "#F0EEF8" }}>
               STELLING <span style={{ background: "linear-gradient(90deg, #7B4FFF, #00E5FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>SECURE</span>
             </span>
           </button>
 
           {/* Desktop nav */}
-          <nav style={{ display: "flex", alignItems: "center", gap: 40 }} className="hidden md:flex">
+          <nav style={{ display: isMobile ? "none" : "flex", alignItems: "center", gap: 40 }}>
             {links.map((l) => (
               <button
                 key={l.id}
@@ -102,7 +104,6 @@ export const Navbar = () => {
                 {l.label}
               </button>
             ))}
-
             <motion.button
               animate={{ opacity: scrolled ? 1 : 0, pointerEvents: scrolled ? "auto" : "none" }}
               transition={{ duration: 0.4 }}
@@ -128,9 +129,8 @@ export const Navbar = () => {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden"
             onClick={() => setOpen((o) => !o)}
-            style={{ background: "none", border: "none", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: 40, height: 40, gap: 5 }}
+            style={{ display: isMobile ? "flex" : "none", background: "none", border: "none", flexDirection: "column", justifyContent: "center", alignItems: "center", width: 40, height: 40, gap: 5 }}
             aria-label="Menu"
           >
             {[0, 1, 2].map((i) => (
@@ -152,7 +152,7 @@ export const Navbar = () => {
 
       {/* Mobile menu */}
       <AnimatePresence>
-        {open && (
+        {open && isMobile && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -169,7 +169,6 @@ export const Navbar = () => {
               justifyContent: "center",
               gap: 40,
             }}
-            className="md:hidden"
           >
             {links.map((l, i) => (
               <motion.button
@@ -183,6 +182,7 @@ export const Navbar = () => {
                 style={{
                   fontFamily: "'JetBrains Mono', monospace",
                   fontSize: 32,
+                  color: "#F0EEF8",
                   fontWeight: 300,
                   textTransform: "uppercase",
                   letterSpacing: "0.2em",
