@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { z } from "zod";
 import { Reveal } from "./Reveal";
 import { toast } from "sonner";
-import emailjs from "@emailjs/browser";
+import { Turnstile } from "@marsidev/react-turnstile";
+
+const SITE_KEY = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 const schema = z.object({
   nombre: z.string().trim().min(1, "Introduce tu nombre").max(100),
@@ -35,6 +37,8 @@ export const Contact = () => {
   const [errors, setErrors] = useState<Partial<Record<FieldName, string>>>({});
   const [touched, setTouched] = useState<Partial<Record<FieldName, boolean>>>({});
   const [shakeKey, setShakeKey] = useState(0);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<{ reset: () => void }>(null);
 
   const borderFor = (name: FieldName, focused: boolean) => {
     if (errors[name]) return ERROR_COLOR;
@@ -43,11 +47,16 @@ export const Contact = () => {
     return "rgba(240,238,248,0.07)";
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const fd = new FormData(form);
     if (fd.get("_gotcha")) return;
+
+    if (!turnstileToken) {
+      toast.error("Completa la verificación de seguridad.");
+      return;
+    }
 
     const data = {
       nombre: String(fd.get("nombre") || ""),
@@ -72,20 +81,30 @@ export const Contact = () => {
     setErrors({});
     setSubmitting(true);
 
-    emailjs.send(
-      import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
-      import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
-      { from_name: data.nombre, from_email: data.email, empresa: data.empresa, message: data.mensaje },
-      import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY
-    ).then(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, turnstileToken }),
+      });
+
+      if (res.ok) {
+        toast.success("Mensaje enviado. Te respondemos en menos de 48h.");
+        form.reset();
+        setTouched({});
+        setTurnstileToken(null);
+        turnstileRef.current?.reset();
+      } else {
+        const err = await res.json() as { error: string };
+        toast.error(err.error || "Error al enviar. Escríbenos a hola@stellingsecure.com");
+        turnstileRef.current?.reset();
+      }
+    } catch {
+      toast.error("Error de conexión. Escríbenos a hola@stellingsecure.com");
+      turnstileRef.current?.reset();
+    } finally {
       setSubmitting(false);
-      toast.success("Mensaje enviado. Te respondemos en menos de 48h.");
-      form.reset();
-      setTouched({});
-    }).catch(() => {
-      setSubmitting(false);
-      toast.error("Error al enviar. Escríbenos a hola@stellingsecure.com");
-    });
+    }
   };
 
   const renderField = (
@@ -173,9 +192,17 @@ export const Contact = () => {
               aria-hidden="true"
             />
 
+            <Turnstile
+              ref={turnstileRef}
+              siteKey={SITE_KEY}
+              onSuccess={setTurnstileToken}
+              onExpire={() => setTurnstileToken(null)}
+              options={{ theme: "dark", language: "es" }}
+            />
+
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !turnstileToken}
               style={{
                 background: "linear-gradient(135deg, #7B4FFF, #00E5FF)",
                 color: "#050508",
@@ -189,11 +216,10 @@ export const Contact = () => {
                 width: "100%",
                 border: "none",
                 marginTop: 8,
-                opacity: submitting ? 0.7 : 1,
+                opacity: submitting || !turnstileToken ? 0.7 : 1,
                 transition: "opacity 0.25s ease",
+                cursor: submitting || !turnstileToken ? "not-allowed" : "pointer",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
-              onMouseLeave={(e) => (e.currentTarget.style.opacity = submitting ? "0.7" : "1")}
             >
               {submitting ? "Enviando..." : "Solicitar consulta gratuita →"}
             </button>
