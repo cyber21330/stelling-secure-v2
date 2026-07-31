@@ -21,7 +21,7 @@ export const WhyUs = () => (
 </h2>
       </Reveal>
       <Reveal delay={0.15}>
-        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 16, maxWidth: 600, lineHeight: 1.75, marginBottom: 64 }}>
+        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 16, maxWidth: 600, lineHeight: 1.75, marginBottom: 64 }}>
           La mayoría de agencias hacen webs. La mayoría de empresas de seguridad no entienden tu negocio. Nosotros hacemos ambas cosas, con el mismo nivel de exigencia.
         </p>
       </Reveal>
@@ -54,7 +54,7 @@ export const WhyUs = () => (
             <h3 style={{ fontFamily: "'Syne', sans-serif", color: "#F0EEF8", fontWeight: 600, fontSize: 22, lineHeight: 1.2, marginTop: 20, marginBottom: 12 }}>
               {r.title}
             </h3>
-            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 14, lineHeight: 1.75 }}>
+            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 14, lineHeight: 1.75 }}>
               {r.text}
             </p>
           </motion.div>

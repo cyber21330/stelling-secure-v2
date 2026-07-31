@@ -66,7 +66,7 @@ export const Hero = () => {
         {/* Tag */}
         <motion.p
           variants={fadeUp} initial="hidden" animate="show" custom={0}
-          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", letterSpacing: "0.3em", fontSize: 11, textTransform: "uppercase" }}
+          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", letterSpacing: "0.3em", fontSize: 11, textTransform: "uppercase" }}
         >
           STELLING SECURE · VALENCIA
         </motion.p>
@@ -110,7 +110,7 @@ export const Hero = () => {
         {!isMobile && (
           <motion.p
             variants={fadeUp} initial="hidden" animate="show" custom={3}
-            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 16, maxWidth: 560, lineHeight: 1.75 }}
+            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 16, maxWidth: 560, lineHeight: 1.75 }}
           >
             Stelling Secure es tu equipo de{" "}
             <strong style={{ color: "#F0EEF8", fontWeight: 500 }}>desarrollo web y seguridad web en Valencia</strong>.
@@ -124,7 +124,7 @@ export const Hero = () => {
         {!isMobile && (
           <motion.p
             variants={fadeUp} initial="hidden" animate="show" custom={3.5}
-            style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 11, letterSpacing: "0.08em" }}
+            style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, letterSpacing: "0.08em" }}
           >
             Más de 50 PYMEs en Valencia confían en Stelling Secure
           </motion.p>
@@ -190,7 +190,7 @@ export const Hero = () => {
         {/* Trust */}
         <motion.p
           variants={fadeUp} initial="hidden" animate="show" custom={4.5}
-          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10, letterSpacing: "0.08em" }}
+          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.08em" }}
         >
           Sin compromiso · Respuesta en 24-48h · 100% confidencial
         </motion.p>
@@ -210,7 +210,7 @@ export const Hero = () => {
             flexDirection: "column",
             alignItems: "center",
             gap: 8,
-            color: "#6B6880",
+            color: "#A5A2BD",
           }}
         >
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: "0.3em" }}>SCROLL</span>

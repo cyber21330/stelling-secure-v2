@@ -64,7 +64,7 @@ export const FAQ = () => {
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                         style={{ overflow: "hidden" }}
                       >
-                        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 15, lineHeight: 1.75, padding: "0 28px 24px 28px" }}>
+                        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 15, lineHeight: 1.75, padding: "0 28px 24px 28px" }}>
                           {f.a}
                         </p>
                       </motion.div>

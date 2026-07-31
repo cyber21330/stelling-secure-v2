@@ -1,0 +1,230 @@
+diff --git a/src/components/stelling/Contact.tsx b/src/components/stelling/Contact.tsx
+index ad1f183..026174f 100644
+--- a/src/components/stelling/Contact.tsx
++++ b/src/components/stelling/Contact.tsx
+@@ -174,7 +174,7 @@ export const Contact = () => {
+             noValidate
+             style={{ maxWidth: 560, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16, textAlign: "left" }}
+           >
+-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10, letterSpacing: "0.05em", textAlign: "center" }}>
++            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.05em", textAlign: "center" }}>
+               ✓ Primera consulta sin coste · ✓ Respuesta en &lt; 48h · ✓ Sin permanencias
+             </p>
+ 
+@@ -224,10 +224,10 @@ export const Contact = () => {
+               {submitting ? "Enviando..." : "Solicitar consulta gratuita →"}
+             </button>
+ 
+-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10, textAlign: "center" }}>
++            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, textAlign: "center" }}>
+               🔒 Tus datos están protegidos. No compartimos tu información.
+             </p>
+-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 11, textAlign: "center" }}>
++            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, textAlign: "center" }}>
+               También puedes escribirnos a{" "}
+               <a href="mailto:hola@stellingsecure.com" style={{ color: "#00E5FF" }}>
+                 hola@stellingsecure.com
+diff --git a/src/components/stelling/FAQ.tsx b/src/components/stelling/FAQ.tsx
+index 8bbd953..3078c5d 100644
+--- a/src/components/stelling/FAQ.tsx
++++ b/src/components/stelling/FAQ.tsx
+@@ -64,7 +64,7 @@ export const FAQ = () => {
+                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                         style={{ overflow: "hidden" }}
+                       >
+-                        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 15, lineHeight: 1.75, padding: "0 28px 24px 28px" }}>
++                        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 15, lineHeight: 1.75, padding: "0 28px 24px 28px" }}>
+                           {f.a}
+                         </p>
+                       </motion.div>
+diff --git a/src/components/stelling/Footer.tsx b/src/components/stelling/Footer.tsx
+index 469c91d..a356e13 100644
+--- a/src/components/stelling/Footer.tsx
++++ b/src/components/stelling/Footer.tsx
+@@ -3,9 +3,9 @@ import { Logo } from "./Logo";
+ const FooterLink = ({ children, href = "#" }: { children: React.ReactNode; href?: string }) => (
+   <a
+     href={href}
+-    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: "#6B6880", display: "block", padding: "4px 0", transition: "color 0.2s ease" }}
++    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: "#A5A2BD", display: "block", padding: "4px 0", transition: "color 0.2s ease" }}
+     onMouseEnter={(e) => (e.currentTarget.style.color = "#00E5FF")}
+-    onMouseLeave={(e) => (e.currentTarget.style.color = "#6B6880")}
++    onMouseLeave={(e) => (e.currentTarget.style.color = "#A5A2BD")}
+   >
+     {children}
+   </a>
+@@ -21,10 +21,10 @@ export const Footer = () => (
+             STELLING <span style={{ background: "linear-gradient(90deg, #7B4FFF, #00E5FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>SECURE</span>
+           </span>
+         </div>
+-        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 11, marginBottom: 4 }}>
++        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, marginBottom: 4 }}>
+           Desarrollo web & Seguridad digital
+         </p>
+-        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 11, marginBottom: 24 }}>
++        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, marginBottom: 24 }}>
+           Valencia, España
+         </p>
+         <p style={{ fontFamily: "'Syne', sans-serif", color: "rgba(0,229,255,0.35)", fontSize: 18, fontWeight: 500 }}>
+@@ -55,10 +55,10 @@ export const Footer = () => (
+     </div>
+ 
+     <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 24px", borderTop: "1px solid rgba(240,238,248,0.04)", display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between" }}>
+-      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10 }}>
++      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10 }}>
+         © 2026 Stelling Secure. Todos los derechos reservados.
+       </p>
+-      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10 }}>
++      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10 }}>
+         Hecho con precisión en Valencia.
+       </p>
+     </div>
+diff --git a/src/components/stelling/Hero.tsx b/src/components/stelling/Hero.tsx
+index a7b2377..402b86d 100644
+--- a/src/components/stelling/Hero.tsx
++++ b/src/components/stelling/Hero.tsx
+@@ -66,7 +66,7 @@ export const Hero = () => {
+         {/* Tag */}
+         <motion.p
+           variants={fadeUp} initial="hidden" animate="show" custom={0}
+-          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", letterSpacing: "0.3em", fontSize: 11, textTransform: "uppercase" }}
++          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", letterSpacing: "0.3em", fontSize: 11, textTransform: "uppercase" }}
+         >
+           STELLING SECURE · VALENCIA
+         </motion.p>
+@@ -110,7 +110,7 @@ export const Hero = () => {
+         {!isMobile && (
+           <motion.p
+             variants={fadeUp} initial="hidden" animate="show" custom={3}
+-            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 16, maxWidth: 560, lineHeight: 1.75 }}
++            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 16, maxWidth: 560, lineHeight: 1.75 }}
+           >
+             Stelling Secure es tu equipo de{" "}
+             <strong style={{ color: "#F0EEF8", fontWeight: 500 }}>desarrollo web y seguridad web en Valencia</strong>.
+@@ -124,7 +124,7 @@ export const Hero = () => {
+         {!isMobile && (
+           <motion.p
+             variants={fadeUp} initial="hidden" animate="show" custom={3.5}
+-            style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 11, letterSpacing: "0.08em" }}
++            style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, letterSpacing: "0.08em" }}
+           >
+             Más de 50 PYMEs en Valencia confían en Stelling Secure
+           </motion.p>
+@@ -190,7 +190,7 @@ export const Hero = () => {
+         {/* Trust */}
+         <motion.p
+           variants={fadeUp} initial="hidden" animate="show" custom={4.5}
+-          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10, letterSpacing: "0.08em" }}
++          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.08em" }}
+         >
+           Sin compromiso · Respuesta en 24-48h · 100% confidencial
+         </motion.p>
+@@ -210,7 +210,7 @@ export const Hero = () => {
+             flexDirection: "column",
+             alignItems: "center",
+             gap: 8,
+-            color: "#6B6880",
++            color: "#A5A2BD",
+           }}
+         >
+           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: "0.3em" }}>SCROLL</span>
+diff --git a/src/components/stelling/Navbar.tsx b/src/components/stelling/Navbar.tsx
+index 08e70c7..ad50733 100644
+--- a/src/components/stelling/Navbar.tsx
++++ b/src/components/stelling/Navbar.tsx
+@@ -93,13 +93,13 @@ export const Navbar = () => {
+                   fontSize: 11,
+                   letterSpacing: "0.2em",
+                   textTransform: "uppercase",
+-                  color: active === l.id ? "#00E5FF" : "#6B6880",
++                  color: active === l.id ? "#00E5FF" : "#A5A2BD",
+                   background: "none",
+                   border: "none",
+                   transition: "color 0.25s ease",
+                 }}
+                 onMouseEnter={(e) => { if (active !== l.id) e.currentTarget.style.color = "#F0EEF8"; }}
+-                onMouseLeave={(e) => { if (active !== l.id) e.currentTarget.style.color = "#6B6880"; }}
++                onMouseLeave={(e) => { if (active !== l.id) e.currentTarget.style.color = "#A5A2BD"; }}
+               >
+                 {l.label}
+               </button>
+diff --git a/src/components/stelling/Process.tsx b/src/components/stelling/Process.tsx
+index 99458dc..41e321f 100644
+--- a/src/components/stelling/Process.tsx
++++ b/src/components/stelling/Process.tsx
+@@ -62,7 +62,7 @@ export const Process = () => (
+               <h3 style={{ fontFamily: "'Syne', sans-serif", color: "#F0EEF8", fontWeight: 600, fontSize: 22, marginBottom: 12 }}>
+                 {s.title}
+               </h3>
+-              <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 14, lineHeight: 1.75 }}>
++              <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 14, lineHeight: 1.75 }}>
+                 {s.text}
+               </p>
+             </motion.div>
+diff --git a/src/components/stelling/Services.tsx b/src/components/stelling/Services.tsx
+index 8e9085f..c267277 100644
+--- a/src/components/stelling/Services.tsx
++++ b/src/components/stelling/Services.tsx
+@@ -89,12 +89,12 @@ export const Services = () => (
+             <div style={{ fontFamily: "'JetBrains Mono', monospace", color: c.accent, fontSize: 11, marginBottom: 24 }}>
+               {c.tag}
+             </div>
+-            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 14, lineHeight: 1.75, marginBottom: 32 }}>
++            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 14, lineHeight: 1.75, marginBottom: 32 }}>
+               {c.desc}
+             </p>
+             <ul style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+               {c.items.map((it) => (
+-                <li key={it} style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 12, display: "flex", gap: 8 }}>
++                <li key={it} style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 12, display: "flex", gap: 8 }}>
+                   <span style={{ color: c.accent }}>→</span>
+                   <span>{it}</span>
+                 </li>
+diff --git a/src/components/stelling/Stats.tsx b/src/components/stelling/Stats.tsx
+index 6888b27..7e10ff2 100644
+--- a/src/components/stelling/Stats.tsx
++++ b/src/components/stelling/Stats.tsx
+@@ -48,7 +48,7 @@ export const Stats = () => (
+           </div>
+           <div style={{
+             fontFamily: "'JetBrains Mono', monospace",
+-            color: "#6B6880",
++            color: "#A5A2BD",
+             fontSize: 11,
+             letterSpacing: "0.15em",
+             textTransform: "uppercase",
+diff --git a/src/components/stelling/WhyUs.tsx b/src/components/stelling/WhyUs.tsx
+index 0fde1de..4654257 100644
+--- a/src/components/stelling/WhyUs.tsx
++++ b/src/components/stelling/WhyUs.tsx
+@@ -21,7 +21,7 @@ export const WhyUs = () => (
+ </h2>
+       </Reveal>
+       <Reveal delay={0.15}>
+-        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 16, maxWidth: 600, lineHeight: 1.75, marginBottom: 64 }}>
++        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 16, maxWidth: 600, lineHeight: 1.75, marginBottom: 64 }}>
+           La mayoría de agencias hacen webs. La mayoría de empresas de seguridad no entienden tu negocio. Nosotros hacemos ambas cosas, con el mismo nivel de exigencia.
+         </p>
+       </Reveal>
+@@ -54,7 +54,7 @@ export const WhyUs = () => (
+             <h3 style={{ fontFamily: "'Syne', sans-serif", color: "#F0EEF8", fontWeight: 600, fontSize: 22, lineHeight: 1.2, marginTop: 20, marginBottom: 12 }}>
+               {r.title}
+             </h3>
+-            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 14, lineHeight: 1.75 }}>
++            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 14, lineHeight: 1.75 }}>
+               {r.text}
+             </p>
+           </motion.div>
+diff --git a/src/styles/global.css b/src/styles/global.css
+index d4395ab..990c3c7 100644
+--- a/src/styles/global.css
++++ b/src/styles/global.css
+@@ -44,7 +44,7 @@
+   --violet-bdr:  rgba(123,79,255,0.3);
+   --magenta:     #FF2D78;
+   --text:        #F0EEF8;
+-  --muted:       #6B6880;
++  --muted:       #A5A2BD;
+   --faint:       rgba(240,238,248,0.04);
+   --line:        rgba(240,238,248,0.07);
+   --grad-main:   linear-gradient(135deg, #7B4FFF 0%, #00E5FF 100%);

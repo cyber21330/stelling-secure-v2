@@ -48,7 +48,7 @@ export const Stats = () => (
           </div>
           <div style={{
             fontFamily: "'JetBrains Mono', monospace",
-            color: "#6B6880",
+            color: "#A5A2BD",
             fontSize: 11,
             letterSpacing: "0.15em",
             textTransform: "uppercase",

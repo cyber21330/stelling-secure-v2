@@ -174,7 +174,7 @@ export const Contact = () => {
             noValidate
             style={{ maxWidth: 560, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16, textAlign: "left" }}
           >
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10, letterSpacing: "0.05em", textAlign: "center" }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.05em", textAlign: "center" }}>
               ✓ Primera consulta sin coste · ✓ Respuesta en &lt; 48h · ✓ Sin permanencias
             </p>
 
@@ -224,10 +224,10 @@ export const Contact = () => {
               {submitting ? "Enviando..." : "Solicitar consulta gratuita →"}
             </button>
 
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10, textAlign: "center" }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, textAlign: "center" }}>
               🔒 Tus datos están protegidos. No compartimos tu información.
             </p>
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 11, textAlign: "center" }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, textAlign: "center" }}>
               También puedes escribirnos a{" "}
               <a href="mailto:hola@stellingsecure.com" style={{ color: "#00E5FF" }}>
                 hola@stellingsecure.com

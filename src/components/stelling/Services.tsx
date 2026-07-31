@@ -89,12 +89,12 @@ export const Services = () => (
             <div style={{ fontFamily: "'JetBrains Mono', monospace", color: c.accent, fontSize: 11, marginBottom: 24 }}>
               {c.tag}
             </div>
-            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 14, lineHeight: 1.75, marginBottom: 32 }}>
+            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 14, lineHeight: 1.75, marginBottom: 32 }}>
               {c.desc}
             </p>
             <ul style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               {c.items.map((it) => (
-                <li key={it} style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 12, display: "flex", gap: 8 }}>
+                <li key={it} style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 12, display: "flex", gap: 8 }}>
                   <span style={{ color: c.accent }}>→</span>
                   <span>{it}</span>
                 </li>

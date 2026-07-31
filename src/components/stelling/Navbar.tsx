@@ -93,13 +93,13 @@ export const Navbar = () => {
                   fontSize: 11,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color: active === l.id ? "#00E5FF" : "#6B6880",
+                  color: active === l.id ? "#00E5FF" : "#A5A2BD",
                   background: "none",
                   border: "none",
                   transition: "color 0.25s ease",
                 }}
                 onMouseEnter={(e) => { if (active !== l.id) e.currentTarget.style.color = "#F0EEF8"; }}
-                onMouseLeave={(e) => { if (active !== l.id) e.currentTarget.style.color = "#6B6880"; }}
+                onMouseLeave={(e) => { if (active !== l.id) e.currentTarget.style.color = "#A5A2BD"; }}
               >
                 {l.label}
               </button>

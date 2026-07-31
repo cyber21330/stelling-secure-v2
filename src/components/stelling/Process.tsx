@@ -62,7 +62,7 @@ export const Process = () => (
               <h3 style={{ fontFamily: "'Syne', sans-serif", color: "#F0EEF8", fontWeight: 600, fontSize: 22, marginBottom: 12 }}>
                 {s.title}
               </h3>
-              <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#6B6880", fontSize: 14, lineHeight: 1.75 }}>
+              <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 14, lineHeight: 1.75 }}>
                 {s.text}
               </p>
             </motion.div>

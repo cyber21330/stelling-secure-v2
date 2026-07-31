@@ -3,9 +3,9 @@ import { Logo } from "./Logo";
 const FooterLink = ({ children, href = "#" }: { children: React.ReactNode; href?: string }) => (
   <a
     href={href}
-    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: "#6B6880", display: "block", padding: "4px 0", transition: "color 0.2s ease" }}
+    style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: "#A5A2BD", display: "block", padding: "4px 0", transition: "color 0.2s ease" }}
     onMouseEnter={(e) => (e.currentTarget.style.color = "#00E5FF")}
-    onMouseLeave={(e) => (e.currentTarget.style.color = "#6B6880")}
+    onMouseLeave={(e) => (e.currentTarget.style.color = "#A5A2BD")}
   >
     {children}
   </a>
@@ -21,10 +21,10 @@ export const Footer = () => (
             STELLING <span style={{ background: "linear-gradient(90deg, #7B4FFF, #00E5FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>SECURE</span>
           </span>
         </div>
-        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 11, marginBottom: 4 }}>
+        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, marginBottom: 4 }}>
           Desarrollo web & Seguridad digital
         </p>
-        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 11, marginBottom: 24 }}>
+        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, marginBottom: 24 }}>
           Valencia, España
         </p>
         <p style={{ fontFamily: "'Syne', sans-serif", color: "rgba(0,229,255,0.35)", fontSize: 18, fontWeight: 500 }}>
@@ -55,10 +55,10 @@ export const Footer = () => (
     </div>
 
     <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 24px", borderTop: "1px solid rgba(240,238,248,0.04)", display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between" }}>
-      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10 }}>
+      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10 }}>
         © 2026 Stelling Secure. Todos los derechos reservados.
       </p>
-      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#6B6880", fontSize: 10 }}>
+      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10 }}>
         Hecho con precisión en Valencia.
       </p>
     </div>
