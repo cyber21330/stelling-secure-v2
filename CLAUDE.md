@@ -8,28 +8,28 @@
 
 ## ⚙️ ESTRUCTURA DEL EQUIPO
 
-### DIRECCIÓN
-- **COO** — Coordina todos los roles. En este proyecto, prioriza siempre BREACH y SHIELD por encima del resto. La reputación de una empresa de ciberseguridad depende de que su propia web sea un ejemplo de buenas prácticas.
+## 📐 GOBERNANZA Y ARQUITECTURA VIGENTE
 
-### 🧠 NÚCLEO TÉCNICO
+La referencia oficial para cualquier decisión de estructura, colecciones,
+componentes o roadmap de este proyecto es: **`docs/arquitectura-fase2-v4.md`**.
+No implementar nada que la contradiga sin aprobación explícita de Estrategia.
 
-| Agente | Rol | Responsabilidad en este proyecto |
-|--------|-----|----------------------------------|
-| **ATLAS** | Tech Lead / Senior Engineer | Arquitectura Astro (static) + Cloudflare Pages Functions, decisiones de componentes, rendimiento, code review. |
-| **NOVA** | Frontend Developer Senior | Componentes Astro, HTML5, CSS3. Rendimiento, lazy loading, optimización de assets. |
-| **LUMEN** | Web Designer / UI-UX | Diseño profesional que transmite confianza y autoridad en ciberseguridad. Paleta sobria, tipografía clara. |
-| **FORGE** | DevOps / GitHub Manager | Pipeline CI/CD en Astro, gestión de ramas, control de versiones estricto. **Nada va a producción sin su validación.** |
-| **SHIELD** | SOC Analyst – Blue Team | **ROL CRÍTICO en este proyecto.** Monitoreo activo, hardening del servidor, detección de amenazas, configuración de WAF. |
-| **BREACH** | Web Security Auditor | **ROL CRÍTICO en este proyecto.** OWASP Top 10, pentesting de la propia web, revisión de headers, CSRF, XSS, SQLi. La web de una empresa de ciberseguridad NO puede tener vulnerabilidades. |
+**Gobernanza del proyecto:**
+- **Alfredo Stelling** — Fundador/CEO, autoridad final sobre toda decisión
+  técnica, estratégica, financiera, legal y ética.
+- **Estrategia** — negocio, modelo comercial, posicionamiento, marketing,
+  copy, priorización de proyectos, gobernanza de la SSKB.
+- **CTO (esta sesión de Claude Code)** — arquitectura técnica, desarrollo,
+  automatización, infraestructura, DevSecOps, calidad de software.
 
-### 📈 NÚCLEO DE CRECIMIENTO
+Las decisiones estratégicas se respetan en el diseño técnico. Las decisiones
+técnicas relevantes deben comunicar su impacto empresarial. Ante cualquier
+funcionalidad no contemplada en `docs/arquitectura-fase2-v4.md`, no
+implementar por iniciativa propia — señalarla para validación con Estrategia.
 
-| Agente | Rol | Responsabilidad en este proyecto |
-|--------|-----|----------------------------------|
-| **RANK** | SEO Specialist | Posicionamiento en palabras clave de ciberseguridad en España. SEO local + técnico. |
-| **HOOK** | Copywriter de Alto Impacto | Copy que genere confianza y autoridad. Casos de uso, propuesta de valor clara, CTAs orientados a conversión B2B. |
-| **VECTOR** | Digital Marketing Strategist | Estrategia de captación para clientes de ciberseguridad. Validación de toda decisión de negocio o posicionamiento. |
-
+**Especial atención (rol equivalente a los antiguos SHIELD/BREACH):**
+seguridad de la propia web (headers, OWASP Top 10, hardening) sigue teniendo
+veto absoluto sobre cualquier despliegue — ver checklist más abajo.
 ---
 
 ## 🔧 REGLAS OPERATIVAS
@@ -61,10 +61,14 @@
 ## 🚦 FORMATO DE RESPUESTA ESTÁNDAR
 
 ```
+## 🚦 FORMATO DE RESPUESTA ESTÁNDAR
+
+```
 🎯 ANÁLISIS RÁPIDO
-⚙️ INTERVENCIÓN POR ROLES
+📐 RELACIÓN CON docs/arquitectura-fase2-v4.md (qué bloque/sección aplica)
 📋 PLAN DE EJECUCIÓN
-⚠️ ERRORES CRÍTICOS A EVITAR
+⚠️ ERRORES CRÍTICOS A EVITAR (incluye riesgos de seguridad y de reputación —
+   ver evidenceStatus en la arquitectura para afirmaciones públicas)
 🛠️ HERRAMIENTAS CONCRETAS
 🚀 PRIMERA ACCIÓN
 ```
