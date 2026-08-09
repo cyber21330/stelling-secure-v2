@@ -13,7 +13,12 @@ owner: Estrategia | CTO | Marketing | Legal | Blue Team | Customer Success
 lastReviewed: fecha (ISO)
 maturityLevel: draft | review | approved | published | deprecated | archived
 isStrategicAsset: boolean
+businessValue: array de lead_generation | authority | trust | conversion |
+                seo | education | retention (mínimo 1, sin excepción)
 ```
+
+### `businessValue` — nota técnica de implementación
+Array (`z.array(enum).min(1)`), no enum único: un mismo contenido puede aportar a varios valores de negocio a la vez (ej. un caso de éxito puede ser `trust` + `conversion` + `authority`). Aplica a las 3 colecciones del transversalSchema (`services`, `caseStudies`, `promises`) sin excepción — todo contenido debe declarar explícitamente al menos un valor, no hay default implícito.
 
 ### Tabla `owner` (v4, valores por defecto — representan responsabilidad empresarial, no autoría técnica)
 
@@ -88,6 +93,38 @@ Colección `promises` se mantiene con ese nombre técnico interno (renombrar una
 ## 3. Arquitectura de Componentes
 
 Sin cambios de fondo respecto a v3. `PromiseList` pasa a renderizar `/empresa/nuestro-compromiso/`; mismo componente, misma colección `promises`.
+
+### 3.1 Colección `promises` — schema (implementado en `src/content/config.ts`)
+
+```
+statement: string
+order: number (default 0)
+owner: default 'Estrategia'
+isStrategicAsset: default true   ← excepción frente al default false del resto
+                                    de colecciones; compromiso público de marca
++ metadatos transversales (sección 0)
+```
+
+Nombre técnico interno `promises` sin cambios (ver sección 2). No usa `title`/`description` como `services` — el campo de contenido es `statement`.
+
+### 3.2 Colección `caseStudies` — schema (implementado en `src/content/config.ts`)
+
+```
+title: string
+client: string (opcional)
+sector: string
+challenge: string
+vulnerabilitiesFound: string[] (default [])
+remediationTime: string
+improvementSummary: string
+summary: string
+evidenceLevel: 'publico' | 'anonimizado' | 'solo-interno'
+order: number (default 0)
+owner: default 'Estrategia'
++ metadatos transversales (sección 0)
+```
+
+`evidenceLevel` es el control de build para afirmaciones públicas sobre clientes reales (checklist BREACH/SHIELD, CLAUDE.md): `publico` se publica tal cual, `anonimizado` se publica sin identificar al cliente, `solo-interno` nunca se renderiza en el sitio público. Alimenta `/casos-de-exito/` (tarea 7 del roadmap, sección 5).
 
 ---
 
