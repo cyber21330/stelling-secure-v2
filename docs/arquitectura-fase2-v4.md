@@ -94,7 +94,7 @@ Colección `promises` se mantiene con ese nombre técnico interno (renombrar una
 
 Sin cambios de fondo respecto a v3. `PromiseList` pasa a renderizar `/empresa/nuestro-compromiso/`; mismo componente, misma colección `promises`.
 
-### 3.1 Colección `promises` — schema (implementado en `src/content/config.ts`)
+### 3.1 Colección `promises` — schema (implementado en `src/content.config.ts`)
 
 ```
 statement: string
@@ -107,7 +107,7 @@ isStrategicAsset: default true   ← excepción frente al default false del rest
 
 Nombre técnico interno `promises` sin cambios (ver sección 2). No usa `title`/`description` como `services` — el campo de contenido es `statement`.
 
-### 3.2 Colección `caseStudies` — schema (implementado en `src/content/config.ts`)
+### 3.2 Colección `caseStudies` — schema (implementado en `src/content.config.ts`)
 
 ```
 title: string
@@ -185,4 +185,4 @@ En menos de 15 segundos, la Home debe transmitir que Stelling Secure es una cons
 
 ---
 
-**Arquitectura cerrada. Para empezar Sprint 1 en el repositorio real, necesito acceso — sigue pendiente desde v3. Indícame cómo prefieres dármelo (clonar desde GitHub, acceso a un fork, o que trabajemos primero sobre una copia que tú subas).**
+**Arquitectura cerrada. Implementación en curso en el repositorio real (rama sprint1-fase2). Tarea #1 completada y commiteada (734d749).**
