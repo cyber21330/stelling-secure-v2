@@ -63,6 +63,20 @@
    Sprint 1 tareas 4, 6, 7 (roadmap sección 5) requieren entradas reales de
    contenido que usen estos schemas, incluido `businessValue` obligatorio.
 
+## Tarea #2 — Nav 6 ítems + estructura /empresa/ (en curso)
+
+- `src/layouts/Layout.astro` — añadidas props opcionales `canonicalPath`
+  (default `"/"`, sustituye el `canonical`/`og:url` hardcodeado a la home
+  para todas las páginas) y `noindex` (default `false`). Compatibles con
+  páginas existentes: `index.astro` no pasa ninguna de las dos y mantiene
+  el comportamiento anterior.
+- Las 3 páginas nuevas bajo `/empresa/` (`quienes-somos`, `como-trabajamos`,
+  `nuestro-compromiso`) llevan `noindex: true` **temporalmente** — son
+  placeholders sin contenido real todavía. **Quitar `noindex` cuando las
+  tareas #8 (`quienes-somos`), #5 (`como-trabajamos`) y #4
+  (`nuestro-compromiso`) añadan contenido real** (roadmap, sección 5 de
+  `docs/arquitectura-fase2-v4.md`).
+
 ## Nota de proceso
 
 Esta sesión verificó cada afirmación contra el estado real de disco y un

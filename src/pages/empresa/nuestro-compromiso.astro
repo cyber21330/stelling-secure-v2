@@ -1,0 +1,24 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { CustomCursor } from '../../components/stelling/CustomCursor';
+import { Navbar } from '../../components/stelling/Navbar';
+import { Footer } from '../../components/stelling/Footer';
+---
+
+<Layout
+  title="Nuestro Compromiso | Stelling Secure"
+  description="El compromiso público de marca de Stelling Secure con sus clientes."
+  canonicalPath="/empresa/nuestro-compromiso/"
+  noindex={true}
+>
+  <CustomCursor client:load />
+  <Navbar client:load />
+  <main style="position:relative; z-index:1; min-height: 60vh; padding-top: 160px;">
+    <section style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+      <h1 style="font-family: 'JetBrains Mono', monospace; color: #F0EEF8; font-size: 32px; letter-spacing: 0.05em;">
+        Nuestro Compromiso
+      </h1>
+    </section>
+  </main>
+  <Footer client:visible />
+</Layout>
