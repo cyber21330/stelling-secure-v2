@@ -4,14 +4,10 @@ import { Logo } from "./Logo";
 
 type NavItem =
   | { kind: "anchor"; id: string; label: string; href: string }
-  | { kind: "disabled"; label: string }
   | { kind: "dropdown"; label: string; items: { label: string; href: string }[] };
 
 const navItems: NavItem[] = [
   { kind: "anchor", id: "services", label: "Servicios", href: "/#services" },
-  { kind: "disabled", label: "Metodología SSA™" },
-  { kind: "disabled", label: "Casos de Éxito" },
-  { kind: "disabled", label: "Recursos" },
   {
     kind: "dropdown",
     label: "Empresa",
@@ -23,16 +19,6 @@ const navItems: NavItem[] = [
   },
   { kind: "anchor", id: "contact", label: "Contacto", href: "/#contact" },
 ];
-
-const disabledLabelStyle = {
-  fontFamily: "'JetBrains Mono', monospace",
-  fontSize: 11,
-  letterSpacing: "0.2em",
-  textTransform: "uppercase" as const,
-  color: "rgba(165,162,189,0.35)",
-  cursor: "default",
-  userSelect: "none" as const,
-};
 
 export const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -122,14 +108,6 @@ export const Navbar = () => {
           {/* Desktop nav */}
           <nav style={{ display: isMobile ? "none" : "flex", alignItems: "center", gap: 40 }}>
             {navItems.map((item) => {
-              if (item.kind === "disabled") {
-                return (
-                  <span key={item.label} aria-disabled="true" style={disabledLabelStyle}>
-                    {item.label}
-                  </span>
-                );
-              }
-
               if (item.kind === "dropdown") {
                 return (
                   <div
@@ -301,30 +279,6 @@ export const Navbar = () => {
             }}
           >
             {navItems.map((item, i) => {
-              if (item.kind === "disabled") {
-                return (
-                  <motion.span
-                    key={item.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
-                    aria-disabled="true"
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 28,
-                      color: "rgba(240,238,248,0.3)",
-                      fontWeight: 300,
-                      textTransform: "uppercase",
-                      letterSpacing: "0.2em",
-                      cursor: "default",
-                      userSelect: "none",
-                    }}
-                  >
-                    {item.label}
-                  </motion.span>
-                );
-              }
-
               if (item.kind === "dropdown") {
                 return (
                   <div key={item.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
