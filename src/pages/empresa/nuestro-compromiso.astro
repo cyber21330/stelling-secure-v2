@@ -2,14 +2,20 @@
 import Layout from '../../layouts/Layout.astro';
 import { CustomCursor } from '../../components/stelling/CustomCursor';
 import { Navbar } from '../../components/stelling/Navbar';
+import { PromiseList } from '../../components/stelling/PromiseList';
 import { Footer } from '../../components/stelling/Footer';
+import { getCollection } from 'astro:content';
+
+// Regla de build (arquitectura v4, sección 0): solo maturityLevel: 'published' se renderiza en producción.
+const promiseEntries = (await getCollection('promises', ({ data }) => data.maturityLevel === 'published'))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => ({ statement: entry.data.statement, order: entry.data.order }));
 ---
 
 <Layout
   title="Nuestro Compromiso | Stelling Secure"
   description="El compromiso público de marca de Stelling Secure con sus clientes."
   canonicalPath="/empresa/nuestro-compromiso/"
-  noindex={true}
 >
   <CustomCursor client:load />
   <Navbar client:load />
@@ -18,6 +24,9 @@ import { Footer } from '../../components/stelling/Footer';
       <h1 style="font-family: 'JetBrains Mono', monospace; color: #F0EEF8; font-size: 32px; letter-spacing: 0.05em;">
         Nuestro Compromiso
       </h1>
+    </section>
+    <section style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
+      <PromiseList promises={promiseEntries} client:visible />
     </section>
   </main>
   <Footer client:visible />
