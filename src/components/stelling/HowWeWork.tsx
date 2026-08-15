@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 const steps = [
   { num: "01", title: "Reunión inicial", text: "Hablamos contigo para entender tu negocio, tu web actual y tus objetivos de seguridad." },
   { num: "02", title: "Definición del alcance", text: "Acordamos por escrito qué se audita, con qué profundidad y en qué plazo." },
-  { num: "03", title: "Auditoría", text: "Analizamos tu infraestructura, aplicación web y configuración." },
+  { num: "03", title: "Auditoría", text: "Analizamos los activos incluidos en el alcance acordado: infraestructura, aplicación web y configuración, según corresponda." },
   { num: "04", title: "Informe ejecutivo", text: "Resumen para dirección: qué riesgos se han encontrado, su impacto y qué priorizar." },
   { num: "05", title: "Informe técnico", text: "Detalle para tu equipo técnico: vulnerabilidades encontradas, evidencias y pasos de reproducción." },
   { num: "06", title: "Plan de remediación", text: "Proponemos correcciones concretas, priorizadas por impacto y esfuerzo, con plazos." },
