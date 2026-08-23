@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 // Metadatos transversales — ver docs/arquitectura-fase2-v4.md, sección 0.
@@ -46,13 +46,49 @@ const transversalSchema = z.object({
 
 // Colección `services` — owner por defecto: Estrategia (tabla sección 0).
 // Alimenta /servicios/ y ServicesGrid (Sprint 1, tarea 6).
+// Ampliada según especificación F2 aprobada por Estrategia: `category` agrupa
+// Auditoría + Evaluación como "principal" y Desarrollo Seguro como
+// "complementario" (dos valores, no tres — directiva explícita de Estrategia).
 const services = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/services' }),
   schema: transversalSchema.extend({
     owner: transversalSchema.shape.owner.default('Estrategia'),
     title: z.string(),
+    slug: z.string(),
     description: z.string(),
     order: z.number().default(0),
+    category: z.enum(['principal', 'complementario']),
+    problem: z.string(),
+    risk: z.string(),
+    evaluation: z.array(z.string()),
+    evidence: z.string(),
+    decision: z.string(),
+    remediation: z.string(),
+    targetClient: z.string(),
+    scope: z.string(),
+    deliverables: z.array(z.string()),
+    limitations: z.string(),
+    faq: z
+      .array(
+        z.object({
+          question: z.string(),
+          answer: z.string(),
+        })
+      )
+      .default([]),
+    // priceRange: informativo, no se lee en ningún componente todavía —
+    // ver especificación F2.
+    priceRange: z.string().optional(),
+    frameworksReferenced: z
+      .array(
+        z.object({
+          name: z.string(),
+          evidenceStatus: z.enum(['verificado', 'pendiente-documentacion', 'no-usar']),
+        })
+      )
+      .default([]),
+    relatedCaseStudy: reference('caseStudies').optional(),
+    ssaPhaseRefs: z.array(z.string()).default([]),
   }),
 });
 
