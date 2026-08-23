@@ -268,7 +268,7 @@ export const Navbar = () => {
               position: "fixed",
               inset: 0,
               zIndex: 90,
-              background: "#050508",
+              background: "var(--bg)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",

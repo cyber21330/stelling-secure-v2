@@ -18,7 +18,7 @@ type FieldName = "nombre" | "email" | "empresa" | "mensaje";
 const ERROR_COLOR = "#FF2D78";
 
 const inputBase: React.CSSProperties = {
-  background: "#0F0F1A",
+  background: "var(--bg3)",
   color: "#F0EEF8",
   fontFamily: "'Space Grotesk', sans-serif",
   fontWeight: 300,

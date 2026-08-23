@@ -10,7 +10,7 @@ const stats = [
 export const Stats = () => (
   <section style={{
     padding: "80px 24px",
-    background: "#09090F",
+    background: "var(--bg2)",
     borderTop: "1px solid rgba(240,238,248,0.05)",
     borderBottom: "1px solid rgba(240,238,248,0.05)",
   }}>

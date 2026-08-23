@@ -9,7 +9,7 @@ const steps = [
 ];
 
 export const Process = () => (
-  <section id="process" style={{ padding: "128px 24px", background: "#050508" }}>
+  <section id="process" style={{ padding: "128px 24px", background: "var(--bg)" }}>
     <div style={{ maxWidth: 1100, margin: "0 auto" }}>
       <Reveal x={-20} y={0}>
         <div className="slabel">03 · Proceso</div>

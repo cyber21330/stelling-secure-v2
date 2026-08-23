@@ -10,7 +10,7 @@ const reasons = [
 ];
 
 export const WhyUs = () => (
-  <section id="why" style={{ padding: "128px 24px", background: "#09090F" }}>
+  <section id="why" style={{ padding: "128px 24px", background: "var(--bg2)" }}>
     <div style={{ maxWidth: 1100, margin: "0 auto" }}>
       <Reveal x={-20} y={0}>
         <div className="slabel">02 · Por qué nosotros</div>
@@ -41,7 +41,7 @@ export const WhyUs = () => (
               show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
             }}
             style={{
-              background: "#0F0F1A",
+              background: "var(--bg3)",
               border: "1px solid rgba(240,238,248,0.07)",
               borderRadius: 3,
               padding: 32,
