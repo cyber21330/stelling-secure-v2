@@ -39,7 +39,7 @@ export const Stats = () => (
             fontWeight: 800,
             fontSize: "clamp(40px, 5vw, 56px)",
             lineHeight: 1,
-            background: "linear-gradient(135deg, #7B4FFF, #00E5FF)",
+            background: "var(--grad-main)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",

@@ -42,7 +42,7 @@ export const HowWeWork = () => (
               fontFamily: "'JetBrains Mono', monospace",
               fontSize: 40,
               fontWeight: 300,
-              background: "linear-gradient(135deg, #7B4FFF, #00E5FF)",
+              background: "var(--grad-main)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",

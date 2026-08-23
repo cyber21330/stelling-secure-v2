@@ -27,7 +27,7 @@ export const StickyCTA = () => {
             left: 0,
             right: 0,
             zIndex: 200,
-            background: "linear-gradient(135deg, #7B4FFF, #00E5FF)",
+            background: "var(--grad-main)",
             padding: 16,
             color: "#050508",
             fontFamily: "'JetBrains Mono', monospace",

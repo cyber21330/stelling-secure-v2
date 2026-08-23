@@ -18,7 +18,7 @@ export const Footer = () => (
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
           <Logo size={32} />
           <span style={{ fontFamily: "'JetBrains Mono', monospace", color: "#F0EEF8", letterSpacing: "0.15em", fontSize: 13, fontWeight: 600 }}>
-            STELLING <span style={{ background: "linear-gradient(90deg, #7B4FFF, #00E5FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>SECURE</span>
+            STELLING <span className="grad-text">SECURE</span>
           </span>
         </div>
         <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, marginBottom: 4 }}>

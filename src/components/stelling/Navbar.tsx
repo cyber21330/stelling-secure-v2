@@ -101,7 +101,7 @@ export const Navbar = () => {
           >
             <Logo size={28} />
             <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, fontWeight: 600, letterSpacing: "0.15em", color: "#F0EEF8" }}>
-              STELLING <span style={{ background: "linear-gradient(90deg, #7B4FFF, #00E5FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>SECURE</span>
+              STELLING <span className="grad-text">SECURE</span>
             </span>
           </a>
 

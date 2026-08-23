@@ -204,7 +204,7 @@ export const Contact = () => {
               type="submit"
               disabled={submitting || !turnstileToken}
               style={{
-                background: "linear-gradient(135deg, #7B4FFF, #00E5FF)",
+                background: "var(--grad-main)",
                 color: "#050508",
                 fontFamily: "'JetBrains Mono', monospace",
                 fontWeight: 600,
