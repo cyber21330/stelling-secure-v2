@@ -17,7 +17,7 @@ export const WhyUs = () => (
       </Reveal>
       <Reveal delay={0.1}>
         <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)", fontWeight: 700, fontSize: "clamp(36px, 5vw, 52px)", lineHeight: 1.1, marginBottom: 80 }}>
-  Servicios de Desarrollo Web y Seguridad Web
+  Por qué Stelling Secure
 </h2>
       </Reveal>
       <Reveal delay={0.15}>
