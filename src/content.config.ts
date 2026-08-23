@@ -67,7 +67,7 @@ const services = defineCollection({
     targetClient: z.string(),
     scope: z.string(),
     deliverables: z.array(z.string()),
-    limitations: z.string(),
+    limitations: z.array(z.string()),
     faq: z
       .array(
         z.object({
