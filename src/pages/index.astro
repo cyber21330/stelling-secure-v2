@@ -32,6 +32,18 @@ const serviceEntries = (
     description: entry.data.description,
     category: entry.data.category,
   }));
+
+// Trust (WhyUs.tsx) — 4 de las 6 promesas de marca, mismo patrón que
+// /empresa/nuestro-compromiso/. Filtro por id de archivo (estable,
+// no depende del texto del statement) — ver análisis previo.
+const TRUST_PROMISE_IDS = ['independencia', 'evidencia', 'transparencia', 'practicidad'];
+const trustPromises = (
+  await getCollection('promises', ({ id, data }) =>
+    data.maturityLevel === 'published' && TRUST_PROMISE_IDS.includes(id)
+  )
+)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => ({ statement: entry.data.statement, order: entry.data.order }));
 ---
 
 <Layout>
@@ -40,7 +52,7 @@ const serviceEntries = (
   <main style="position:relative; z-index:1;">
     <Hero client:load />
     <ServicesGrid services={serviceEntries} variant="home" sectionId="services" client:visible />
-    <WhyUs client:visible />
+    <WhyUs promises={trustPromises} client:visible />
     <Process client:visible />
     <Stats client:visible />
     <FAQ client:visible />
