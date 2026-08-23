@@ -53,14 +53,13 @@ export const Hero = () => {
       <h1 className="sr-only">Identifica tus riesgos. Prioriza lo importante. Protege tu negocio.</h1>
 
       <div style={{
-        maxWidth: 860,
         margin: "0 auto",
         textAlign: "center",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: isMobile ? 14 : 32,
-        paddingTop: isMobile ? 0 : 80,
+        gap: isMobile ? 14 : 24,
+        paddingTop: isMobile ? 0 : 48,
       }}>
 
         {/* Eyebrow */}
@@ -78,14 +77,25 @@ export const Hero = () => {
           style={{
             fontFamily: "'Dune Rise', sans-serif",
             fontWeight: 400,
-            fontSize: isMobile ? "clamp(20px, 6vw, 26px)" : "clamp(40px, 7vw, 72px)",
+            fontSize: isMobile ? "clamp(20px, 6vw, 26px)" : "clamp(38px, 4.5vw, 56px)",
             lletterSpacing: isMobile ? "0.01em" : "0.05em",
             textTransform: "uppercase",
-            lineHeight: isMobile ? 1.15 : 1.02,
+            lineHeight: isMobile ? 1.15 : 1.15,
             margin: 0,
+            maxWidth: isMobile ? "none" : 1090,
           }}
         >
-          Identifica tus riesgos. Prioriza lo importante. Protege tu negocio.
+          {isMobile ? (
+            "Identifica tus riesgos. Prioriza lo importante. Protege tu negocio."
+          ) : (
+            <>
+              Identifica tus riesgos.
+              <br />
+              Prioriza lo importante.
+              <br />
+              Protege tu negocio.
+            </>
+          )}
         </motion.p>
 
         {/* Subheadline */}
@@ -96,6 +106,7 @@ export const Hero = () => {
             color: "rgba(0,229,255,0.7)",
             fontSize: isMobile ? 16 : "clamp(18px, 2.5vw, 26px)",
             fontWeight: 400,
+            maxWidth: 860,
           }}
         >
           Evaluamos la seguridad de tu empresa y convertimos los hallazgos en prioridades claras y acciones concretas para reducir el riesgo.
@@ -161,7 +172,7 @@ export const Hero = () => {
         {/* Microcopy */}
         <motion.p
           variants={fadeUp} initial="hidden" animate="show" custom={4.5}
-          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.08em" }}
+          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.08em", maxWidth: 860 }}
         >
           Evaluaciones con alcance definido, evidencias documentadas y recomendaciones priorizadas.
         </motion.p>
