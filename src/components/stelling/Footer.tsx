@@ -54,7 +54,7 @@ export const Footer = () => (
       </div>
     </div>
 
-    <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 24px", borderTop: "1px solid rgba(240,238,248,0.04)", display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between" }}>
+    <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 24px", borderTop: "1px solid var(--faint)", display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between" }}>
       <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10 }}>
         © 2026 Stelling Secure. Todos los derechos reservados.
       </p>

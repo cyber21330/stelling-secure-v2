@@ -87,7 +87,7 @@ export const Navbar = () => {
           background: scrolled ? "rgba(5,5,8,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(240,238,248,0.07)" : "1px solid transparent",
+          borderBottom: scrolled ? "1px solid var(--line)" : "1px solid transparent",
           transition: "all 0.4s ease",
         }}
       >

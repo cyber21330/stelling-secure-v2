@@ -33,7 +33,7 @@ export const FAQ = () => {
                 <div
                   key={i}
                   style={{
-                    borderBottom: "1px solid rgba(240,238,248,0.07)",
+                    borderBottom: "1px solid var(--line)",
                     borderLeft: isOpen ? "2px solid #00E5FF" : "2px solid transparent",
                     transition: "border-color 0.25s ease",
                   }}

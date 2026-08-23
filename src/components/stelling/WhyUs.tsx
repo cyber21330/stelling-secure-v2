@@ -42,13 +42,13 @@ export const WhyUs = () => (
             }}
             style={{
               background: "var(--bg3)",
-              border: "1px solid rgba(240,238,248,0.07)",
+              border: "1px solid var(--line)",
               borderRadius: 3,
               padding: 32,
               transition: "border-color 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(123,79,255,0.3)")}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(240,238,248,0.07)")}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--violet-bdr)")}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--line)")}
           >
             <r.Icon size={24} color="#7B4FFF" strokeWidth={1.5} />
             <h3 style={{ fontFamily: "'Syne', sans-serif", color: "#F0EEF8", fontWeight: 600, fontSize: 22, lineHeight: 1.2, marginTop: 20, marginBottom: 12 }}>

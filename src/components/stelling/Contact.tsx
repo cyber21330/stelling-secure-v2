@@ -44,7 +44,7 @@ export const Contact = () => {
     if (errors[name]) return ERROR_COLOR;
     if (focused) return "#00E5FF";
     if (touched[name]) return "rgba(0,229,255,0.2)";
-    return "rgba(240,238,248,0.07)";
+    return "var(--line)";
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -129,7 +129,7 @@ export const Contact = () => {
       onChange: () => {
         if (errors[name]) setErrors((er) => ({ ...er, [name]: undefined }));
       },
-      style: { ...inputBase, borderColor: errorMsg ? ERROR_COLOR : "rgba(240,238,248,0.07)" },
+      style: { ...inputBase, borderColor: errorMsg ? ERROR_COLOR : "var(--line)" },
     };
 
     return (

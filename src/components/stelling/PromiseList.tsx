@@ -33,13 +33,13 @@ export const PromiseList = ({ promises }: PromiseListProps) => (
             }}
             style={{
               background: "var(--bg3)",
-              border: "1px solid rgba(240,238,248,0.07)",
+              border: "1px solid var(--line)",
               borderRadius: 3,
               padding: 32,
               transition: "border-color 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(123,79,255,0.3)")}
-            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(240,238,248,0.07)")}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--violet-bdr)")}
+            onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--line)")}
           >
             <div style={{
               fontFamily: "'JetBrains Mono', monospace",
