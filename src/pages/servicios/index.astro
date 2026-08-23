@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { CustomCursor } from '../../components/stelling/CustomCursor';
+import { Navbar } from '../../components/stelling/Navbar';
+import { ServicesGrid } from '../../components/stelling/ServicesGrid';
+import { Footer } from '../../components/stelling/Footer';
+import { getCollection } from 'astro:content';
+
+// Regla de build (arquitectura v4, sección 0): solo maturityLevel: 'published'
+// se renderiza en producción. En astro dev se incluye también 'approved'
+// para previsualización local — import.meta.env.DEV es falso tanto en
+// npm run build local como en cualquier deploy de Cloudflare Pages
+// (producción o preview), así que 'approved' nunca llega a un build real.
+const serviceEntries = (
+  await getCollection('services', ({ data }) => {
+    if (import.meta.env.DEV) {
+      return data.maturityLevel === 'published' || data.maturityLevel === 'approved';
+    }
+    return data.maturityLevel === 'published';
+  })
+)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => ({
+    slug: entry.data.slug,
+    title: entry.data.title,
+    description: entry.data.description,
+    category: entry.data.category,
+  }));
+---
+
+<Layout
+  title="Servicios | Stelling Secure"
+  description="Auditoría de Seguridad Web, Evaluación de Ciberseguridad para PYMES y Desarrollo Seguro."
+  canonicalPath="/servicios/"
+  noindex={true}
+>
+  <CustomCursor client:load />
+  <Navbar client:load />
+  <main style="position:relative; z-index:1; min-height: 60vh; padding-top: 160px;">
+    <ServicesGrid services={serviceEntries} client:visible />
+  </main>
+  <Footer client:visible />
+</Layout>

@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { CustomCursor } from '../../components/stelling/CustomCursor';
+import { Navbar } from '../../components/stelling/Navbar';
+import { ServiceDetail } from '../../components/stelling/ServiceDetail';
+import { Footer } from '../../components/stelling/Footer';
+import { getCollection } from 'astro:content';
+
+const SLUG = 'evaluacion-ciberseguridad-pymes';
+
+const [entry] = await getCollection('services', ({ data }) => {
+  const isVisible = import.meta.env.DEV
+    ? data.maturityLevel === 'published' || data.maturityLevel === 'approved'
+    : data.maturityLevel === 'published';
+  return isVisible && data.slug === SLUG;
+});
+
+const service = entry?.data;
+---
+
+<Layout
+  title="Evaluación de Ciberseguridad para PYMES | Stelling Secure"
+  description={service?.description}
+  canonicalPath="/servicios/evaluacion-ciberseguridad-pymes/"
+  noindex={true}
+>
+  <CustomCursor client:load />
+  <Navbar client:load />
+  <main style="position:relative; z-index:1; min-height: 60vh; padding-top: 160px; padding-bottom: 128px;">
+    {service ? (
+      <ServiceDetail service={service} client:visible />
+    ) : (
+      <p style="text-align:center; color: var(--muted); font-family: 'Space Grotesk', sans-serif;">
+        Contenido no disponible.
+      </p>
+    )}
+  </main>
+  <Footer client:visible />
+</Layout>
