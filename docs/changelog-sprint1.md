@@ -77,6 +77,46 @@
   (`nuestro-compromiso`) añadan contenido real** (roadmap, sección 5 de
   `docs/arquitectura-fase2-v4.md`).
 
+## Trabajo paralelo — Accesibilidad (fuera de tareas #1-#10)
+
+- Fix de contraste WCAG AA: commit 2c8bee6 (2026-07-31), reemplaza
+  #6B6880 por #A5A2BD en 9 archivos (Contact.tsx, FAQ.tsx, Footer.tsx,
+  Hero.tsx, Navbar.tsx, Process.tsx, Services.tsx, Stats.tsx,
+  WhyUs.tsx, global.css). Ya commiteado antes del inicio de este
+  sprint.
+
+## Reglas de gobernanza aprendidas
+
+- **No inferir contenido empresarial por analogía estructural.** Un campo de
+  otro servicio/entrada con estructura similar no es una fuente válida de
+  copy — cada campo obligatorio del schema requiere aprobación explícita de
+  Estrategia, incluso cuando el patrón general sea el mismo. Origen: intento
+  fallido de reutilizar `deliverables` de `auditoria-seguridad-web` en
+  `evaluacion-ciberseguridad-pymes`, corregido antes de crear el archivo.
+
+## Nota de diseño pendiente — jerarquía visual en /servicios/
+
+Directiva de Estrategia para cuando se construya /servicios/ (aún no
+implementado): jerarquía perceptiva no equivalente entre los 3
+servicios.
+
+- Auditoría de Seguridad Web y Evaluación de Ciberseguridad para
+  PYMES se presentan como "SOLUCIONES DE CIBERSEGURIDAD" (servicios
+  principales; Auditoría de Seguridad Web como servicio insignia).
+- Desarrollo Seguro se presenta después, visualmente separado, con
+  menor protagonismo, bajo un concepto equivalente a "CAPACIDAD
+  COMPLEMENTARIA".
+- Desarrollo Seguro: sin fotografías ni copy típicos de agencia de
+  desarrollo, sin CTA específico de creación de webs, sin usar
+  "Desarrollo Web" como denominación principal. No incorporar diseño
+  web, e-commerce como servicio independiente, branding, SEO,
+  mantenimiento web generalista, hosting ni claims de agencia
+  digital.
+- CTA autorizado para los tres servicios: "Solicitar Diagnóstico
+  Ejecutivo".
+- No es obligatorio reproducir el layout literal propuesto por
+  Estrategia, solo la jerarquía perceptiva.
+
 ## Nota de proceso
 
 Esta sesión verificó cada afirmación contra el estado real de disco y un
