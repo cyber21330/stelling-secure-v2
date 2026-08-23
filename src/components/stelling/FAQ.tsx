@@ -34,7 +34,7 @@ export const FAQ = () => {
                   key={i}
                   style={{
                     borderBottom: "1px solid var(--line)",
-                    borderLeft: isOpen ? "2px solid #00E5FF" : "2px solid transparent",
+                    borderLeft: isOpen ? "2px solid var(--cyan)" : "2px solid transparent",
                     transition: "border-color 0.25s ease",
                   }}
                 >
