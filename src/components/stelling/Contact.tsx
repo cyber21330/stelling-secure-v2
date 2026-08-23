@@ -42,7 +42,7 @@ export const Contact = () => {
 
   const borderFor = (name: FieldName, focused: boolean) => {
     if (errors[name]) return ERROR_COLOR;
-    if (focused) return "#00E5FF";
+    if (focused) return "var(--cyan)";
     if (touched[name]) return "rgba(0,229,255,0.2)";
     return "var(--line)";
   };
@@ -124,7 +124,7 @@ export const Contact = () => {
         e.currentTarget.style.borderColor = borderFor(name, false);
       },
       onFocus: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        e.currentTarget.style.borderColor = errors[name] ? ERROR_COLOR : "#00E5FF";
+        e.currentTarget.style.borderColor = errors[name] ? ERROR_COLOR : "var(--cyan)";
       },
       onChange: () => {
         if (errors[name]) setErrors((er) => ({ ...er, [name]: undefined }));
@@ -153,7 +153,7 @@ export const Contact = () => {
       id="contact"
       style={{
         padding: "128px 24px",
-        background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(123,79,255,0.07) 0%, transparent 70%), #050508",
+        background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(123,79,255,0.07) 0%, transparent 70%), var(--bg)",
       }}
     >
       <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
