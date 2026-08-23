@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import { CustomCursor } from '../components/stelling/CustomCursor';
 import { Navbar } from '../components/stelling/Navbar';
 import { Hero } from '../components/stelling/Hero';
-import { Services } from '../components/stelling/Services';
+import { ServicesGrid } from '../components/stelling/ServicesGrid';
 import { WhyUs } from '../components/stelling/WhyUs';
 import { Process } from '../components/stelling/Process';
 import { Stats } from '../components/stelling/Stats';
@@ -12,6 +12,26 @@ import { Contact } from '../components/stelling/Contact';
 import { Footer } from '../components/stelling/Footer';
 import { StickyCTA } from '../components/stelling/StickyCTA';
 import { WhatsAppFab } from '../components/stelling/WhatsAppFab';
+import { getCollection } from 'astro:content';
+
+// Regla de build (arquitectura v4, sección 0): solo maturityLevel: 'published'
+// se renderiza en producción; 'approved' se incluye solo en astro dev local
+// (mismo criterio ya validado en /servicios/index.astro).
+const serviceEntries = (
+  await getCollection('services', ({ data }) => {
+    if (import.meta.env.DEV) {
+      return data.maturityLevel === 'published' || data.maturityLevel === 'approved';
+    }
+    return data.maturityLevel === 'published';
+  })
+)
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((entry) => ({
+    slug: entry.data.slug,
+    title: entry.data.title,
+    description: entry.data.description,
+    category: entry.data.category,
+  }));
 ---
 
 <Layout>
@@ -19,7 +39,7 @@ import { WhatsAppFab } from '../components/stelling/WhatsAppFab';
   <Navbar client:load />
   <main style="position:relative; z-index:1;">
     <Hero client:load />
-    <Services client:visible />
+    <ServicesGrid services={serviceEntries} variant="home" sectionId="services" client:visible />
     <WhyUs client:visible />
     <Process client:visible />
     <Stats client:visible />
