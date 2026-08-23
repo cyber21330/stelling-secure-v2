@@ -75,8 +75,8 @@ export const Hero = () => {
           variants={fadeUp} initial="hidden" animate="show" custom={1}
           aria-hidden="true"
           style={{
-            fontFamily: "'Dune Rise', sans-serif",
-            fontWeight: 400,
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontWeight: 700,
             fontSize: isMobile ? "clamp(20px, 6vw, 26px)" : "clamp(38px, 4.5vw, 56px)",
             lletterSpacing: isMobile ? "0.01em" : "0.05em",
             textTransform: "uppercase",
