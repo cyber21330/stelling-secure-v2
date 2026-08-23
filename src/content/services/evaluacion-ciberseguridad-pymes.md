@@ -44,7 +44,7 @@ owner: Estrategia
 isStrategicAsset: true
 strategicImportance: critical
 lastReviewed: 2026-08-23
-maturityLevel: approved
+maturityLevel: published
 businessValue:
   - lead_generation
   - conversion

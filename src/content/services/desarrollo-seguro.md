@@ -38,7 +38,7 @@ owner: Estrategia
 isStrategicAsset: false
 strategicImportance: medium
 lastReviewed: 2026-08-23
-maturityLevel: approved
+maturityLevel: published
 businessValue:
   - trust
   - conversion
