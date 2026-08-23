@@ -15,7 +15,7 @@ export const Process = () => (
         <div className="slabel">03 · Proceso</div>
       </Reveal>
       <Reveal delay={0.1}>
-        <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#F0EEF8", fontWeight: 700, fontSize: "clamp(36px, 5vw, 52px)", lineHeight: 1.1, marginBottom: 80 }}>
+        <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)", fontWeight: 700, fontSize: "clamp(36px, 5vw, 52px)", lineHeight: 1.1, marginBottom: 80 }}>
   Servicios de Desarrollo Web y Seguridad Web
 </h2>
       </Reveal>
@@ -59,10 +59,10 @@ export const Process = () => (
               }}>
                 {s.num}
               </div>
-              <h3 style={{ fontFamily: "'Syne', sans-serif", color: "#F0EEF8", fontWeight: 600, fontSize: 22, marginBottom: 12 }}>
+              <h3 style={{ fontFamily: "'Syne', sans-serif", color: "var(--text)", fontWeight: 600, fontSize: 22, marginBottom: 12 }}>
                 {s.title}
               </h3>
-              <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 14, lineHeight: 1.75 }}>
+              <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--muted)", fontSize: 14, lineHeight: 1.75 }}>
                 {s.text}
               </p>
             </motion.div>

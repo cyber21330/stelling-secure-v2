@@ -54,7 +54,7 @@ export const PromiseList = ({ promises }: PromiseListProps) => (
             }}>
               {String(p.order).padStart(2, "0")}
             </div>
-            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 15, lineHeight: 1.75 }}>
+            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--muted)", fontSize: 15, lineHeight: 1.75 }}>
               {p.statement}
             </p>
           </motion.div>

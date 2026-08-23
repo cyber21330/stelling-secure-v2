@@ -18,7 +18,7 @@ export const HowWeWork = () => (
         <div className="slabel">Metodología</div>
       </Reveal>
       <Reveal delay={0.1}>
-        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 16, maxWidth: 600, lineHeight: 1.75, marginBottom: 64 }}>
+        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--muted)", fontSize: 16, maxWidth: 600, lineHeight: 1.75, marginBottom: 64 }}>
           Siete pasos, siempre los mismos, siempre visibles para ti. Así es como trabajamos en cada proyecto de auditoría.
         </p>
       </Reveal>
@@ -51,10 +51,10 @@ export const HowWeWork = () => (
             }}>
               {s.num}
             </div>
-            <h3 style={{ fontFamily: "'Syne', sans-serif", color: "#F0EEF8", fontWeight: 600, fontSize: 22, marginBottom: 12 }}>
+            <h3 style={{ fontFamily: "'Syne', sans-serif", color: "var(--text)", fontWeight: 600, fontSize: 22, marginBottom: 12 }}>
               {s.title}
             </h3>
-            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 14, lineHeight: 1.75 }}>
+            <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--muted)", fontSize: 14, lineHeight: 1.75 }}>
               {s.text}
             </p>
           </motion.div>

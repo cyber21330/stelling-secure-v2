@@ -100,7 +100,7 @@ export const Navbar = () => {
             aria-label="Stelling Secure — inicio"
           >
             <Logo size={28} />
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, fontWeight: 600, letterSpacing: "0.15em", color: "#F0EEF8" }}>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, fontWeight: 600, letterSpacing: "0.15em", color: "var(--text)" }}>
               STELLING <span className="grad-text">SECURE</span>
             </span>
           </a>
@@ -128,7 +128,7 @@ export const Navbar = () => {
                         fontSize: 11,
                         letterSpacing: "0.2em",
                         textTransform: "uppercase",
-                        color: isEmpresaRoute || empresaOpen ? "#00E5FF" : "#A5A2BD",
+                        color: isEmpresaRoute || empresaOpen ? "var(--cyan)" : "var(--muted)",
                         cursor: "default",
                         transition: "color 0.25s ease",
                       }}
@@ -167,14 +167,14 @@ export const Navbar = () => {
                               fontSize: 11,
                               letterSpacing: "0.1em",
                               textTransform: "uppercase",
-                              color: "#A5A2BD",
+                              color: "var(--muted)",
                               padding: "10px 20px",
                               whiteSpace: "nowrap",
                               transition: "color 0.2s ease",
                               textDecoration: "none",
                             }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = "#00E5FF")}
-                            onMouseLeave={(e) => (e.currentTarget.style.color = "#A5A2BD")}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
                           >
                             {sub.label}
                           </a>
@@ -195,14 +195,14 @@ export const Navbar = () => {
                     fontSize: 11,
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: active === item.id ? "#00E5FF" : "#A5A2BD",
+                    color: active === item.id ? "var(--cyan)" : "var(--muted)",
                     background: "none",
                     border: "none",
                     transition: "color 0.25s ease",
                     textDecoration: "none",
                   }}
-                  onMouseEnter={(e) => { if (active !== item.id) e.currentTarget.style.color = "#F0EEF8"; }}
-                  onMouseLeave={(e) => { if (active !== item.id) e.currentTarget.style.color = "#A5A2BD"; }}
+                  onMouseEnter={(e) => { if (active !== item.id) e.currentTarget.style.color = "var(--text)"; }}
+                  onMouseLeave={(e) => { if (active !== item.id) e.currentTarget.style.color = "var(--muted)"; }}
                 >
                   {item.label}
                 </a>
@@ -219,7 +219,7 @@ export const Navbar = () => {
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 border: "1px solid rgba(0,229,255,0.3)",
-                color: "#00E5FF",
+                color: "var(--cyan)",
                 background: "transparent",
                 padding: "8px 20px",
                 borderRadius: 2,
@@ -249,7 +249,7 @@ export const Navbar = () => {
                     : { rotate: -45, y: -10 }
                     : { rotate: 0, y: 0, opacity: 1 }
                 }
-                style={{ width: 22, height: 1.5, background: "#F0EEF8", display: "block" }}
+                style={{ width: 22, height: 1.5, background: "var(--text)", display: "block" }}
               />
             ))}
           </button>
@@ -290,7 +290,7 @@ export const Navbar = () => {
                       style={{
                         fontFamily: "'JetBrains Mono', monospace",
                         fontSize: 32,
-                        color: isEmpresaRoute ? "#00E5FF" : "#F0EEF8",
+                        color: isEmpresaRoute ? "var(--cyan)" : "var(--text)",
                         fontWeight: 300,
                         textTransform: "uppercase",
                         letterSpacing: "0.2em",
@@ -317,7 +317,7 @@ export const Navbar = () => {
                               style={{
                                 fontFamily: "'JetBrains Mono', monospace",
                                 fontSize: 16,
-                                color: "#A5A2BD",
+                                color: "var(--muted)",
                                 textTransform: "uppercase",
                                 letterSpacing: "0.1em",
                                 textDecoration: "none",
@@ -341,12 +341,12 @@ export const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
                   onClick={(e) => handleAnchorClick(e, item.id)}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "#00E5FF")}
-                  onMouseLeave={(e) => (e.currentTarget.style.color = "#F0EEF8")}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text)")}
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 32,
-                    color: "#F0EEF8",
+                    color: "var(--text)",
                     fontWeight: 300,
                     textTransform: "uppercase",
                     letterSpacing: "0.2em",

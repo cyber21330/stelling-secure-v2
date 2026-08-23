@@ -15,11 +15,11 @@ const schema = z.object({
 });
 
 type FieldName = "nombre" | "email" | "empresa" | "mensaje";
-const ERROR_COLOR = "#FF2D78";
+const ERROR_COLOR = "var(--magenta)";
 
 const inputBase: React.CSSProperties = {
   background: "var(--bg3)",
-  color: "#F0EEF8",
+  color: "var(--text)",
   fontFamily: "'Space Grotesk', sans-serif",
   fontWeight: 300,
   fontSize: 14,
@@ -158,7 +158,7 @@ export const Contact = () => {
     >
       <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
         <Reveal>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#F0EEF8", fontWeight: 700, fontSize: "clamp(36px, 5vw, 52px)", lineHeight: 1.1, marginBottom: 16 }}>
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)", fontWeight: 700, fontSize: "clamp(36px, 5vw, 52px)", lineHeight: 1.1, marginBottom: 16 }}>
             Contacta con Stelling Secure
           </h2>
         </Reveal>
@@ -174,7 +174,7 @@ export const Contact = () => {
             noValidate
             style={{ maxWidth: 560, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16, textAlign: "left" }}
           >
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.05em", textAlign: "center" }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10, letterSpacing: "0.05em", textAlign: "center" }}>
               ✓ Primera consulta sin coste · ✓ Respuesta en &lt; 48h · ✓ Sin permanencias
             </p>
 
@@ -205,7 +205,7 @@ export const Contact = () => {
               disabled={submitting || !turnstileToken}
               style={{
                 background: "var(--grad-main)",
-                color: "#050508",
+                color: "var(--bg)",
                 fontFamily: "'JetBrains Mono', monospace",
                 fontWeight: 600,
                 fontSize: 13,
@@ -224,12 +224,12 @@ export const Contact = () => {
               {submitting ? "Enviando..." : "Solicitar consulta gratuita →"}
             </button>
 
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, textAlign: "center" }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10, textAlign: "center" }}>
               🔒 Tus datos están protegidos. No compartimos tu información.
             </p>
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, textAlign: "center" }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 11, textAlign: "center" }}>
               También puedes escribirnos a{" "}
-              <a href="mailto:hola@stellingsecure.com" style={{ color: "#00E5FF" }}>
+              <a href="mailto:hola@stellingsecure.com" style={{ color: "var(--cyan)" }}>
                 hola@stellingsecure.com
               </a>
             </p>
