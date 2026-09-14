@@ -46,7 +46,7 @@ export const Footer = () => (
           <div style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--cyan)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 16 }}>
             Empresa
           </div>
-          <FooterLink href="#process">Proceso</FooterLink>
+          <FooterLink href="#how-we-work">Cómo trabajamos</FooterLink>
           <FooterLink href="#faq">FAQ</FooterLink>
           <FooterLink href="#contact">Contacto</FooterLink>
           <FooterLink href="mailto:hola@stellingsecure.com">hola@stellingsecure.com</FooterLink>

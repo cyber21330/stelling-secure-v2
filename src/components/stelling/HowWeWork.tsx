@@ -11,13 +11,29 @@ const steps = [
   { num: "07", title: "Seguimiento", text: "Verificamos que las correcciones se han aplicado correctamente." },
 ];
 
-export const HowWeWork = () => (
+interface HowWeWorkProps {
+  // "standalone" (default): usada en /empresa/como-trabajamos/, donde el
+  // <h1> de la página ya cubre el rol de encabezado — no duplicar título.
+  // "home": embebida en Home entre WhyUs y Stats, que sí tienen <h2>
+  // propio — añade el encabezado "Cómo trabajamos" (aprobado por
+  // Estrategia, directiva punto 7) para no romper la jerarquía semántica.
+  variant?: "home" | "standalone";
+}
+
+export const HowWeWork = ({ variant = "standalone" }: HowWeWorkProps) => (
   <section id="how-we-work" style={{ padding: "80px 0 128px" }}>
     <div style={{ maxWidth: 1100, margin: "0 auto" }}>
       <Reveal x={-20} y={0}>
         <div className="slabel">Metodología</div>
       </Reveal>
-      <Reveal delay={0.1}>
+      {variant === "home" && (
+        <Reveal delay={0.1}>
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)", fontWeight: 700, fontSize: "clamp(36px, 5vw, 52px)", lineHeight: 1.1, marginBottom: 80 }}>
+            Cómo trabajamos
+          </h2>
+        </Reveal>
+      )}
+      <Reveal delay={variant === "home" ? 0.15 : 0.1}>
         <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--muted)", fontSize: 16, maxWidth: 600, lineHeight: 1.75, marginBottom: 64 }}>
           Siete pasos, siempre los mismos, siempre visibles para ti. Así es como trabajamos en cada proyecto de auditoría.
         </p>

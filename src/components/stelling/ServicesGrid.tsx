@@ -15,7 +15,7 @@ interface ServicesGridProps {
   // contenido de la página (sin Hero encima) — mismo comportamiento ya
   // verificado. "home": embebida en la home, debajo del Hero — cambia
   // el padding para alinearse con el ritmo de las demás secciones de
-  // Home (WhyUs/Process/FAQ) y usa reveal-on-scroll (whileInView) en
+  // Home (WhyUs/HowWeWork/FAQ) y usa reveal-on-scroll (whileInView) en
   // vez de animar al montar, porque aquí sí empieza fuera del viewport
   // inicial. Nunca cambia contenido, solo presentación.
   variant?: "home" | "full";
