@@ -37,18 +37,17 @@ export const Footer = () => (
           <div style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--cyan)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 16 }}>
             Servicios
           </div>
-          <FooterLink href="#services">Desarrollo Web</FooterLink>
-          <FooterLink href="#services">Seguridad Web</FooterLink>
-          <FooterLink href="#services">Auditoría</FooterLink>
-          <FooterLink href="#services">Consultoría</FooterLink>
+          <FooterLink href="/#services">Auditoría de Seguridad Web</FooterLink>
+          <FooterLink href="/#services">Evaluación de Ciberseguridad para PYMES</FooterLink>
+          <FooterLink href="/#services">Desarrollo Seguro</FooterLink>
         </div>
         <div>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--cyan)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 16 }}>
             Empresa
           </div>
-          <FooterLink href="#how-we-work">Cómo trabajamos</FooterLink>
-          <FooterLink href="#faq">FAQ</FooterLink>
-          <FooterLink href="#contact">Contacto</FooterLink>
+          <FooterLink href="/#how-we-work">Cómo trabajamos</FooterLink>
+          <FooterLink href="/#faq">FAQ</FooterLink>
+          <FooterLink href="/#contact">Contacto</FooterLink>
           <FooterLink href="mailto:hola@stellingsecure.com">hola@stellingsecure.com</FooterLink>
         </div>
       </div>
