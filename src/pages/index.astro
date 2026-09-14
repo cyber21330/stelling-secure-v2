@@ -6,7 +6,6 @@ import { Hero } from '../components/stelling/Hero';
 import { ServicesGrid } from '../components/stelling/ServicesGrid';
 import { WhyUs } from '../components/stelling/WhyUs';
 import { HowWeWork } from '../components/stelling/HowWeWork';
-import { Stats } from '../components/stelling/Stats';
 import { FAQ } from '../components/stelling/FAQ';
 import { Contact } from '../components/stelling/Contact';
 import { Footer } from '../components/stelling/Footer';
@@ -54,7 +53,6 @@ const trustPromises = (
     <ServicesGrid services={serviceEntries} variant="home" sectionId="services" client:visible />
     <WhyUs promises={trustPromises} client:visible />
     <HowWeWork variant="home" client:visible />
-    <Stats client:visible />
     <FAQ client:visible />
     <Contact client:visible />
   </main>
