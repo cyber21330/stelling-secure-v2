@@ -215,13 +215,19 @@ export const Navbar = () => {
               onClick={(e) => handleAnchorClick(e, "contact")}
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 11,
+                // Texto largo ("Solicitar Diagnóstico Ejecutivo") + nav
+                // compacto entre ~768-878px (justo antes del hamburguesa):
+                // fontSize y padding se reducen de forma fluida con clamp()
+                // en ese rango y saturan a los valores originales (11px /
+                // 8px 20px) a partir de ~1050px — en desktop no cambia nada.
+                fontSize: "clamp(9px, calc(0.71vw + 3.55px), 11px)",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
+                whiteSpace: "nowrap",
                 border: "1px solid rgba(0,229,255,0.3)",
                 color: "var(--cyan)",
                 background: "transparent",
-                padding: "8px 20px",
+                padding: "8px clamp(10px, calc(3.55vw - 17.24px), 20px)",
                 borderRadius: 2,
                 transition: "all 0.25s ease",
                 textDecoration: "none",
@@ -229,7 +235,7 @@ export const Navbar = () => {
               onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,229,255,0.08)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
             >
-              Consulta gratuita
+              Solicitar Diagnóstico Ejecutivo
             </motion.a>
           </nav>
 

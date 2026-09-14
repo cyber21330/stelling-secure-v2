@@ -39,7 +39,7 @@ export const StickyCTA = () => {
             border: "none",
           }}
         >
-          Solicitar consulta gratuita →
+          Solicitar Diagnóstico Ejecutivo →
         </motion.button>
       )}
     </AnimatePresence>

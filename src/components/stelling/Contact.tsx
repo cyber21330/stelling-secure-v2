@@ -221,7 +221,7 @@ export const Contact = () => {
                 cursor: submitting || !turnstileToken ? "not-allowed" : "pointer",
               }}
             >
-              {submitting ? "Enviando..." : "Solicitar consulta gratuita →"}
+              {submitting ? "Enviando..." : "Enviar solicitud"}
             </button>
 
             <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10, textAlign: "center" }}>
