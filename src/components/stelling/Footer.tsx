@@ -22,7 +22,7 @@ export const Footer = () => (
           </span>
         </div>
         <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 11, marginBottom: 4 }}>
-          Desarrollo web & Seguridad digital
+          Ciberseguridad para PYMEs.
         </p>
         <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 11, marginBottom: 24 }}>
           Valencia, España

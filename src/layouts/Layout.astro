@@ -10,7 +10,7 @@ interface Props {
 }
 
 const {
-  title = "Stelling Secure | Desarrollo Web y Seguridad Web para PYMEs en Valencia",
+  title = "Stelling Secure | Ciberseguridad para PYMEs — Valencia",
   description = "Stelling Secure — Auditoría de seguridad web y evaluación de ciberseguridad para PYMES. Identificamos riesgos y priorizamos lo que protege tu negocio.",
   canonicalPath = "/",
   noindex = false
@@ -38,14 +38,14 @@ const canonicalUrl = `https://stellingsecure.com${canonicalPath}`;
     <link rel="manifest" href="/site.webmanifest" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:title" content="Stelling Secure | Desarrollo Web y Seguridad Web Valencia" />
-    <meta property="og:description" content="Construimos webs rápidas y seguras para PYMEs en Valencia." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content="https://stellingsecure.com/og-image.jpg" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Stelling Secure" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Stelling Secure | Desarrollo Web y Seguridad Web Valencia" />
-    <meta name="twitter:description" content="Webs rápidas y seguras para PYMEs en Valencia." />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://stellingsecure.com/og-image.jpg" />
   </head>
   <body>
