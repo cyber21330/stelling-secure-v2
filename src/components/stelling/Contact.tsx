@@ -200,6 +200,14 @@ export const Contact = () => {
               options={{ theme: "dark", language: "es" }}
             />
 
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10, textAlign: "center" }}>
+              Protección de datos: Responsable: Alfredo Stelling Bell (Stelling Secure). Utilizaremos los datos que nos facilites para gestionar y responder tu solicitud y, cuando corresponda, adoptar medidas previas a una posible contratación solicitada por ti. Puedes ejercer tus derechos escribiendo a hola@stellingsecure.com. Más información en nuestra{" "}
+              <a href="/legal/privacidad/" style={{ color: "var(--cyan)" }}>
+                Política de Privacidad
+              </a>
+              .
+            </p>
+
             <button
               type="submit"
               disabled={submitting || !turnstileToken}
@@ -224,9 +232,6 @@ export const Contact = () => {
               {submitting ? "Enviando..." : "Enviar solicitud"}
             </button>
 
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10, textAlign: "center" }}>
-              🔒 Tus datos están protegidos. No compartimos tu información.
-            </p>
             <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 11, textAlign: "center" }}>
               También puedes escribirnos a{" "}
               <a href="mailto:hola@stellingsecure.com" style={{ color: "var(--cyan)" }}>

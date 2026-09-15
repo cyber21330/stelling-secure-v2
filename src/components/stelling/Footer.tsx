@@ -53,13 +53,20 @@ export const Footer = () => (
       </div>
     </div>
 
-    <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 24px", borderTop: "1px solid var(--faint)", display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between" }}>
-      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10 }}>
-        © 2026 Stelling Secure. Todos los derechos reservados.
-      </p>
-      <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10 }}>
-        Hecho con precisión en Valencia.
-      </p>
+    <div style={{ maxWidth: 1100, margin: "0 auto", padding: "20px 24px", borderTop: "1px solid var(--faint)", display: "flex", flexDirection: "column", gap: 12 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 20 }}>
+        <FooterLink href="/legal/aviso-legal/">Aviso Legal</FooterLink>
+        <FooterLink href="/legal/privacidad/">Política de Privacidad</FooterLink>
+        <FooterLink href="/legal/cookies/">Política de Cookies</FooterLink>
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12, justifyContent: "space-between" }}>
+        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10 }}>
+          © 2026 Stelling Secure. Todos los derechos reservados.
+        </p>
+        <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10 }}>
+          Hecho con precisión en Valencia.
+        </p>
+      </div>
     </div>
   </footer>
 );
