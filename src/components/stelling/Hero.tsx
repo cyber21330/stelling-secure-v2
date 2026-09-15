@@ -40,7 +40,7 @@ export const Hero = () => {
       style={{
         position: "relative",
         width: "100%",
-        overflowX: "hidden", 
+        overflowX: "hidden",
         minHeight: isMobile ? "auto" : "100vh",
         display: "flex",
         alignItems: "center",
@@ -50,25 +50,24 @@ export const Hero = () => {
           "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(123,79,255,0.08) 0%, transparent 70%), #050508",
       }}
     >
-      <h1 className="sr-only">Desarrollo Web y Seguridad Web para PYMEs en Valencia</h1>
+      <h1 className="sr-only">Identifica tus riesgos. Prioriza lo importante. Protege tu negocio.</h1>
 
       <div style={{
-        maxWidth: 860,
         margin: "0 auto",
         textAlign: "center",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: isMobile ? 14 : 32,
-        paddingTop: isMobile ? 0 : 80,
+        gap: isMobile ? 14 : 24,
+        paddingTop: isMobile ? 0 : 48,
       }}>
 
-        {/* Tag */}
+        {/* Eyebrow */}
         <motion.p
           variants={fadeUp} initial="hidden" animate="show" custom={0}
           style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", letterSpacing: "0.3em", fontSize: 11, textTransform: "uppercase" }}
         >
-          STELLING SECURE · VALENCIA
+          CIBERSEGURIDAD PARA PYMES
         </motion.p>
 
         {/* Headline */}
@@ -76,21 +75,27 @@ export const Hero = () => {
           variants={fadeUp} initial="hidden" animate="show" custom={1}
           aria-hidden="true"
           style={{
-            fontFamily: "'Dune Rise', sans-serif",
-            fontWeight: 400,
-            fontSize: isMobile ? "clamp(20px, 6vw, 26px)" : "clamp(40px, 7vw, 72px)",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontWeight: 700,
+            fontSize: isMobile ? "clamp(20px, 6vw, 26px)" : "clamp(38px, 4.5vw, 56px)",
             lletterSpacing: isMobile ? "0.01em" : "0.05em",
             textTransform: "uppercase",
-            lineHeight: isMobile ? 1.15 : 1.02,
+            lineHeight: isMobile ? 1.15 : 1.15,
             margin: 0,
+            maxWidth: isMobile ? "none" : 1090,
           }}
         >
-          Desarrollo web.
-          <br />
-          Seguridad{" "}
-          <span style={{ background: "linear-gradient(90deg, #7B4FFF, #00E5FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-            digital.
-          </span>
+          {isMobile ? (
+            "Identifica tus riesgos. Prioriza lo importante. Protege tu negocio."
+          ) : (
+            <>
+              Identifica tus riesgos.
+              <br />
+              Prioriza lo importante.
+              <br />
+              Protege tu negocio.
+            </>
+          )}
         </motion.p>
 
         {/* Subheadline */}
@@ -101,34 +106,11 @@ export const Hero = () => {
             color: "rgba(0,229,255,0.7)",
             fontSize: isMobile ? 16 : "clamp(18px, 2.5vw, 26px)",
             fontWeight: 400,
+            maxWidth: 860,
           }}
         >
-          Tu negocio, construido y blindado.
+          Evaluamos la seguridad de tu empresa y convertimos los hallazgos en prioridades claras y acciones concretas para reducir el riesgo.
         </motion.p>
-
-        {/* Body — oculto en móvil */}
-        {!isMobile && (
-          <motion.p
-            variants={fadeUp} initial="hidden" animate="show" custom={3}
-            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#A5A2BD", fontSize: 16, maxWidth: 560, lineHeight: 1.75 }}
-          >
-            Stelling Secure es tu equipo de{" "}
-            <strong style={{ color: "#F0EEF8", fontWeight: 500 }}>desarrollo web y seguridad web en Valencia</strong>.
-            Construimos{" "}
-            <strong style={{ color: "#F0EEF8", fontWeight: 500 }}>páginas web para PYMEs</strong>{" "}
-            rápidas, elegantes y seguras desde la base — y nos quedamos para protegerlas.
-          </motion.p>
-        )}
-
-        {/* Social proof — oculto en móvil */}
-        {!isMobile && (
-          <motion.p
-            variants={fadeUp} initial="hidden" animate="show" custom={3.5}
-            style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, letterSpacing: "0.08em" }}
-          >
-            Más de 50 PYMEs en Valencia confían en Stelling Secure
-          </motion.p>
-        )}
 
         {/* CTAs */}
         <motion.div
@@ -144,9 +126,9 @@ export const Hero = () => {
           }}
         >
           <button
-            onClick={() => scrollTo("services")}
+            onClick={() => scrollTo("contact")}
             style={{
-              background: "linear-gradient(135deg, #7B4FFF, #00E5FF)",
+              background: "var(--grad-main)",
               color: "#050508",
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 600,
@@ -162,11 +144,12 @@ export const Hero = () => {
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
           >
-            Ver servicios
+            Solicitar Diagnóstico Ejecutivo
           </button>
-          <button
-            onClick={() => scrollTo("contact")}
+          <a
+            href="/servicios/"
             style={{
+              display: "inline-block",
               background: "transparent",
               border: "1px solid rgba(0,229,255,0.35)",
               color: "#00E5FF",
@@ -175,24 +158,26 @@ export const Hero = () => {
               fontSize: isMobile ? 12 : 13,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
+              textDecoration: "none",
               padding: isMobile ? "12px 24px" : "14px 32px",
               borderRadius: 2,
               width: isMobile ? "100%" : "auto",
+              textAlign: "center",
               transition: "all 0.25s ease",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,229,255,0.08)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
           >
-            Auditoría gratuita →
-          </button>
+            Ver servicios
+          </a>
         </motion.div>
 
-        {/* Trust */}
+        {/* Microcopy */}
         <motion.p
           variants={fadeUp} initial="hidden" animate="show" custom={4.5}
-          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.08em" }}
+          style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.08em", maxWidth: 860 }}
         >
-          Sin compromiso · Respuesta en 24-48h · 100% confidencial
+          Evaluaciones con alcance definido, evidencias documentadas y recomendaciones priorizadas.
         </motion.p>
       </div>
 

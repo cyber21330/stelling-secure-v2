@@ -6,25 +6,15 @@ interface Promise {
   order: number;
 }
 
-interface WhyUsProps {
+interface PromiseListProps {
   promises: Promise[];
 }
 
-export const WhyUs = ({ promises }: WhyUsProps) => (
-  <section id="why" style={{ padding: "128px 24px", background: "var(--bg2)" }}>
+export const PromiseList = ({ promises }: PromiseListProps) => (
+  <section id="promise-list" style={{ padding: "80px 0 128px" }}>
     <div style={{ maxWidth: 1100, margin: "0 auto" }}>
       <Reveal x={-20} y={0}>
-        <div className="slabel">02 · Por qué nosotros</div>
-      </Reveal>
-      <Reveal delay={0.1}>
-        <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)", fontWeight: 700, fontSize: "clamp(36px, 5vw, 52px)", lineHeight: 1.1, marginBottom: 80 }}>
-  Por qué Stelling Secure
-</h2>
-      </Reveal>
-      <Reveal delay={0.15}>
-        <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--muted)", fontSize: 16, maxWidth: 600, lineHeight: 1.75, marginBottom: 64 }}>
-          La mayoría de agencias hacen webs. La mayoría de empresas de seguridad no entienden tu negocio. Nosotros hacemos ambas cosas, con el mismo nivel de exigencia.
-        </p>
+        <div className="slabel">Compromiso</div>
       </Reveal>
 
       <motion.div
@@ -32,7 +22,7 @@ export const WhyUs = ({ promises }: WhyUsProps) => (
         whileInView="show"
         viewport={{ once: true, margin: "-80px" }}
         variants={{ show: { transition: { staggerChildren: 0.1 } } }}
-        style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20 }}
+        style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20, marginTop: 40 }}
       >
         {promises.map((p) => (
           <motion.div

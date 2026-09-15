@@ -27,9 +27,9 @@ export const StickyCTA = () => {
             left: 0,
             right: 0,
             zIndex: 200,
-            background: "linear-gradient(135deg, #7B4FFF, #00E5FF)",
+            background: "var(--grad-main)",
             padding: 16,
-            color: "#050508",
+            color: "var(--bg)",
             fontFamily: "'JetBrains Mono', monospace",
             fontWeight: 600,
             fontSize: 13,
@@ -39,7 +39,7 @@ export const StickyCTA = () => {
             border: "none",
           }}
         >
-          Solicitar consulta gratuita →
+          Solicitar Diagnóstico Ejecutivo →
         </motion.button>
       )}
     </AnimatePresence>

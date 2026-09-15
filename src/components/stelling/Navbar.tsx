@@ -2,24 +2,46 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "./Logo";
 
-const links = [
-  { id: "services", label: "Servicios" },
-  { id: "process", label: "Proceso" },
-  { id: "faq", label: "FAQ" },
-  { id: "contact", label: "Contacto" },
+type NavItem =
+  | { kind: "anchor"; id: string; label: string; href: string }
+  | { kind: "dropdown"; label: string; items: { label: string; href: string }[] };
+
+const navItems: NavItem[] = [
+  { kind: "anchor", id: "services", label: "Servicios", href: "/servicios/" },
+  {
+    kind: "dropdown",
+    label: "Empresa",
+    items: [
+      { label: "Quiénes Somos", href: "/empresa/quienes-somos/" },
+      { label: "Cómo Trabajamos", href: "/empresa/como-trabajamos/" },
+      { label: "Nuestro Compromiso", href: "/empresa/nuestro-compromiso/" },
+    ],
+  },
+  { kind: "anchor", id: "contact", label: "Contacto", href: "/#contact" },
 ];
+
+const contactNavItem = navItems.find(
+  (item): item is NavItem & { kind: "anchor" } => item.kind === "anchor" && item.id === "contact"
+)!;
 
 export const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
+  const [empresaOpen, setEmpresaOpen] = useState(false);
+  const [empresaMobileOpen, setEmpresaMobileOpen] = useState(false);
+  const [isEmpresaRoute, setIsEmpresaRoute] = useState(false);
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
     window.addEventListener("resize", check);
     return () => window.removeEventListener("resize", check);
+  }, []);
+
+  useEffect(() => {
+    setIsEmpresaRoute(window.location.pathname.startsWith("/empresa/"));
   }, []);
 
   useEffect(() => {
@@ -38,17 +60,22 @@ export const Navbar = () => {
       },
       { rootMargin: "-40% 0px -55% 0px" }
     );
-    links.forEach((l) => {
-      const el = document.getElementById(l.id);
-      if (el) observer.observe(el);
+    navItems.forEach((item) => {
+      if (item.kind === "anchor") {
+        const el = document.getElementById(item.id);
+        if (el) observer.observe(el);
+      }
     });
     return () => observer.disconnect();
   }, []);
 
-  const handleClick = (id: string) => {
+  const handleAnchorClick = (e: React.MouseEvent, item: NavItem & { kind: "anchor" }) => {
     setOpen(false);
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (item.href.startsWith("/#") && window.location.pathname === "/") {
+      e.preventDefault();
+      const el = document.getElementById(item.id);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -64,67 +91,156 @@ export const Navbar = () => {
           background: scrolled ? "rgba(5,5,8,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(240,238,248,0.07)" : "1px solid transparent",
+          borderBottom: scrolled ? "1px solid var(--line)" : "1px solid transparent",
           transition: "all 0.4s ease",
         }}
       >
         <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 32px", height: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
 
           {/* Logo */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            style={{ display: "flex", alignItems: "center", gap: 12, background: "none", border: "none" }}
+          <a
+            href="/"
+            style={{ display: "flex", alignItems: "center", gap: 12, background: "none", border: "none", textDecoration: "none" }}
             aria-label="Stelling Secure — inicio"
           >
             <Logo size={28} />
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, fontWeight: 600, letterSpacing: "0.15em", color: "#F0EEF8" }}>
-              STELLING <span style={{ background: "linear-gradient(90deg, #7B4FFF, #00E5FF)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>SECURE</span>
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 13, fontWeight: 600, letterSpacing: "0.15em", color: "var(--text)" }}>
+              STELLING <span className="grad-text">SECURE</span>
             </span>
-          </button>
+          </a>
 
           {/* Desktop nav */}
           <nav style={{ display: isMobile ? "none" : "flex", alignItems: "center", gap: 40 }}>
-            {links.map((l) => (
-              <button
-                key={l.id}
-                onClick={() => handleClick(l.id)}
-                style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 11,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: active === l.id ? "#00E5FF" : "#A5A2BD",
-                  background: "none",
-                  border: "none",
-                  transition: "color 0.25s ease",
-                }}
-                onMouseEnter={(e) => { if (active !== l.id) e.currentTarget.style.color = "#F0EEF8"; }}
-                onMouseLeave={(e) => { if (active !== l.id) e.currentTarget.style.color = "#A5A2BD"; }}
-              >
-                {l.label}
-              </button>
-            ))}
-            <motion.button
+            {navItems.map((item) => {
+              if (item.kind === "dropdown") {
+                return (
+                  <div
+                    key={item.label}
+                    onMouseEnter={() => setEmpresaOpen(true)}
+                    onMouseLeave={() => setEmpresaOpen(false)}
+                    onFocus={() => setEmpresaOpen(true)}
+                    onBlur={(e) => {
+                      if (!e.currentTarget.contains(e.relatedTarget as Node)) setEmpresaOpen(false);
+                    }}
+                    style={{ position: "relative" }}
+                  >
+                    <span
+                      aria-haspopup="true"
+                      aria-expanded={empresaOpen}
+                      style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: 11,
+                        letterSpacing: "0.2em",
+                        textTransform: "uppercase",
+                        color: isEmpresaRoute || empresaOpen ? "var(--cyan)" : "var(--muted)",
+                        cursor: "default",
+                        transition: "color 0.25s ease",
+                      }}
+                    >
+                      {item.label}
+                    </span>
+                    <motion.div
+                      animate={{ opacity: empresaOpen ? 1 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      style={{
+                        position: "absolute",
+                        top: "100%",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        paddingTop: 16,
+                        pointerEvents: empresaOpen ? "auto" : "none",
+                      }}
+                    >
+                      <div
+                        style={{
+                          background: "rgba(9,9,15,0.98)",
+                          border: "1px solid rgba(240,238,248,0.08)",
+                          borderRadius: 4,
+                          padding: "8px 0",
+                          minWidth: 200,
+                          backdropFilter: "blur(20px)",
+                        }}
+                      >
+                        {item.items.map((sub) => (
+                          <a
+                            key={sub.href}
+                            href={sub.href}
+                            style={{
+                              display: "block",
+                              fontFamily: "'JetBrains Mono', monospace",
+                              fontSize: 11,
+                              letterSpacing: "0.1em",
+                              textTransform: "uppercase",
+                              color: "var(--muted)",
+                              padding: "10px 20px",
+                              whiteSpace: "nowrap",
+                              transition: "color 0.2s ease",
+                              textDecoration: "none",
+                            }}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
+                            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
+                          >
+                            {sub.label}
+                          </a>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </div>
+                );
+              }
+
+              return (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  onClick={(e) => handleAnchorClick(e, item)}
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 11,
+                    letterSpacing: "0.2em",
+                    textTransform: "uppercase",
+                    color: active === item.id ? "var(--cyan)" : "var(--muted)",
+                    background: "none",
+                    border: "none",
+                    transition: "color 0.25s ease",
+                    textDecoration: "none",
+                  }}
+                  onMouseEnter={(e) => { if (active !== item.id) e.currentTarget.style.color = "var(--text)"; }}
+                  onMouseLeave={(e) => { if (active !== item.id) e.currentTarget.style.color = "var(--muted)"; }}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+            <motion.a
+              href="/#contact"
               animate={{ opacity: scrolled ? 1 : 0, pointerEvents: scrolled ? "auto" : "none" }}
               transition={{ duration: 0.4 }}
-              onClick={() => handleClick("contact")}
+              onClick={(e) => handleAnchorClick(e, contactNavItem)}
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
-                fontSize: 11,
+                // Texto largo ("Solicitar Diagnóstico Ejecutivo") + nav
+                // compacto entre ~768-878px (justo antes del hamburguesa):
+                // fontSize y padding se reducen de forma fluida con clamp()
+                // en ese rango y saturan a los valores originales (11px /
+                // 8px 20px) a partir de ~1050px — en desktop no cambia nada.
+                fontSize: "clamp(9px, calc(0.71vw + 3.55px), 11px)",
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
+                whiteSpace: "nowrap",
                 border: "1px solid rgba(0,229,255,0.3)",
-                color: "#00E5FF",
+                color: "var(--cyan)",
                 background: "transparent",
-                padding: "8px 20px",
+                padding: "8px clamp(10px, calc(3.55vw - 17.24px), 20px)",
                 borderRadius: 2,
                 transition: "all 0.25s ease",
+                textDecoration: "none",
               }}
               onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,229,255,0.08)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
             >
-              Consulta gratuita
-            </motion.button>
+              Solicitar Diagnóstico Ejecutivo
+            </motion.a>
           </nav>
 
           {/* Mobile hamburger */}
@@ -143,7 +259,7 @@ export const Navbar = () => {
                     : { rotate: -45, y: -10 }
                     : { rotate: 0, y: 0, opacity: 1 }
                 }
-                style={{ width: 22, height: 1.5, background: "#F0EEF8", display: "block" }}
+                style={{ width: 22, height: 1.5, background: "var(--text)", display: "block" }}
               />
             ))}
           </button>
@@ -162,37 +278,97 @@ export const Navbar = () => {
               position: "fixed",
               inset: 0,
               zIndex: 90,
-              background: "#050508",
+              background: "var(--bg)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              gap: 40,
+              gap: 32,
+              overflowY: "auto",
+              padding: "80px 24px",
             }}
           >
-            {links.map((l, i) => (
-              <motion.button
-                key={l.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
-                onClick={() => handleClick(l.id)}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#00E5FF")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#F0EEF8")}
-                style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 32,
-                  color: "#F0EEF8",
-                  fontWeight: 300,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.2em",
-                  background: "none",
-                  border: "none",
-                }}
-              >
-                {l.label}
-              </motion.button>
-            ))}
+            {navItems.map((item, i) => {
+              if (item.kind === "dropdown") {
+                return (
+                  <div key={item.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
+                    <motion.button
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
+                      onClick={() => setEmpresaMobileOpen((o) => !o)}
+                      style={{
+                        fontFamily: "'JetBrains Mono', monospace",
+                        fontSize: 32,
+                        color: isEmpresaRoute ? "var(--cyan)" : "var(--text)",
+                        fontWeight: 300,
+                        textTransform: "uppercase",
+                        letterSpacing: "0.2em",
+                        background: "none",
+                        border: "none",
+                      }}
+                    >
+                      {item.label}
+                    </motion.button>
+                    <AnimatePresence>
+                      {empresaMobileOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.25 }}
+                          style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 16, overflow: "hidden" }}
+                        >
+                          {item.items.map((sub) => (
+                            <a
+                              key={sub.href}
+                              href={sub.href}
+                              onClick={() => setOpen(false)}
+                              style={{
+                                fontFamily: "'JetBrains Mono', monospace",
+                                fontSize: 16,
+                                color: "var(--muted)",
+                                textTransform: "uppercase",
+                                letterSpacing: "0.1em",
+                                textDecoration: "none",
+                              }}
+                            >
+                              {sub.label}
+                            </a>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
+              return (
+                <motion.a
+                  key={item.id}
+                  href={item.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
+                  onClick={(e) => handleAnchorClick(e, item)}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text)")}
+                  style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: 32,
+                    color: "var(--text)",
+                    fontWeight: 300,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.2em",
+                    background: "none",
+                    border: "none",
+                    textDecoration: "none",
+                  }}
+                >
+                  {item.label}
+                </motion.a>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>

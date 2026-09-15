@@ -15,11 +15,11 @@ const schema = z.object({
 });
 
 type FieldName = "nombre" | "email" | "empresa" | "mensaje";
-const ERROR_COLOR = "#FF2D78";
+const ERROR_COLOR = "var(--magenta)";
 
 const inputBase: React.CSSProperties = {
-  background: "#0F0F1A",
-  color: "#F0EEF8",
+  background: "var(--bg3)",
+  color: "var(--text)",
   fontFamily: "'Space Grotesk', sans-serif",
   fontWeight: 300,
   fontSize: 14,
@@ -42,9 +42,9 @@ export const Contact = () => {
 
   const borderFor = (name: FieldName, focused: boolean) => {
     if (errors[name]) return ERROR_COLOR;
-    if (focused) return "#00E5FF";
+    if (focused) return "var(--cyan)";
     if (touched[name]) return "rgba(0,229,255,0.2)";
-    return "rgba(240,238,248,0.07)";
+    return "var(--line)";
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -124,12 +124,12 @@ export const Contact = () => {
         e.currentTarget.style.borderColor = borderFor(name, false);
       },
       onFocus: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        e.currentTarget.style.borderColor = errors[name] ? ERROR_COLOR : "#00E5FF";
+        e.currentTarget.style.borderColor = errors[name] ? ERROR_COLOR : "var(--cyan)";
       },
       onChange: () => {
         if (errors[name]) setErrors((er) => ({ ...er, [name]: undefined }));
       },
-      style: { ...inputBase, borderColor: errorMsg ? ERROR_COLOR : "rgba(240,238,248,0.07)" },
+      style: { ...inputBase, borderColor: errorMsg ? ERROR_COLOR : "var(--line)" },
     };
 
     return (
@@ -153,12 +153,12 @@ export const Contact = () => {
       id="contact"
       style={{
         padding: "128px 24px",
-        background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(123,79,255,0.07) 0%, transparent 70%), #050508",
+        background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(123,79,255,0.07) 0%, transparent 70%), var(--bg)",
       }}
     >
       <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
         <Reveal>
-          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "#F0EEF8", fontWeight: 700, fontSize: "clamp(36px, 5vw, 52px)", lineHeight: 1.1, marginBottom: 16 }}>
+          <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: "var(--text)", fontWeight: 700, fontSize: "clamp(36px, 5vw, 52px)", lineHeight: 1.1, marginBottom: 16 }}>
             Contacta con Stelling Secure
           </h2>
         </Reveal>
@@ -174,7 +174,7 @@ export const Contact = () => {
             noValidate
             style={{ maxWidth: 560, margin: "0 auto", display: "flex", flexDirection: "column", gap: 16, textAlign: "left" }}
           >
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, letterSpacing: "0.05em", textAlign: "center" }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10, letterSpacing: "0.05em", textAlign: "center" }}>
               ✓ Primera consulta sin coste · ✓ Respuesta en &lt; 48h · ✓ Sin permanencias
             </p>
 
@@ -200,12 +200,20 @@ export const Contact = () => {
               options={{ theme: "dark", language: "es" }}
             />
 
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10, textAlign: "center" }}>
+              Protección de datos: Responsable: Alfredo Stelling Bell (Stelling Secure). Utilizaremos los datos que nos facilites para gestionar y responder tu solicitud y, cuando corresponda, adoptar medidas previas a una posible contratación solicitada por ti. Puedes ejercer tus derechos escribiendo a hola@stellingsecure.com. Más información en nuestra{" "}
+              <a href="/legal/privacidad/" style={{ color: "var(--cyan)" }}>
+                Política de Privacidad
+              </a>
+              .
+            </p>
+
             <button
               type="submit"
               disabled={submitting || !turnstileToken}
               style={{
-                background: "linear-gradient(135deg, #7B4FFF, #00E5FF)",
-                color: "#050508",
+                background: "var(--grad-main)",
+                color: "var(--bg)",
                 fontFamily: "'JetBrains Mono', monospace",
                 fontWeight: 600,
                 fontSize: 13,
@@ -221,15 +229,12 @@ export const Contact = () => {
                 cursor: submitting || !turnstileToken ? "not-allowed" : "pointer",
               }}
             >
-              {submitting ? "Enviando..." : "Solicitar consulta gratuita →"}
+              {submitting ? "Enviando..." : "Enviar solicitud"}
             </button>
 
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 10, textAlign: "center" }}>
-              🔒 Tus datos están protegidos. No compartimos tu información.
-            </p>
-            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "#A5A2BD", fontSize: 11, textAlign: "center" }}>
+            <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 11, textAlign: "center" }}>
               También puedes escribirnos a{" "}
-              <a href="mailto:hola@stellingsecure.com" style={{ color: "#00E5FF" }}>
+              <a href="mailto:hola@stellingsecure.com" style={{ color: "var(--cyan)" }}>
                 hola@stellingsecure.com
               </a>
             </p>

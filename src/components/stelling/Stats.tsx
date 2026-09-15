@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
 
+// SUSPENDIDO — fuera del render de Home por decisión de Estrategia
+// (resolución, punto 1): estas cifras (3 proyectos, 100%, 0 incidentes)
+// no tienen evidencia empresarial verificable/gobernada detrás y no
+// representan Trust. No es una eliminación: no reactivar este
+// componente ni sustituir las métricas por otras hasta que exista esa
+// evidencia gobernada (ver criterio de evidenceStatus en
+// docs/arquitectura-fase2-v4.md). Componente sin dependientes (ver
+// análisis de sesión) — seguro de mantener sin importar en ningún sitio.
 const stats = [
   { value: "3", label: "Proyectos entregados" },
   { value: "100%", label: "Clientes satisfechos" },
@@ -10,7 +18,7 @@ const stats = [
 export const Stats = () => (
   <section style={{
     padding: "80px 24px",
-    background: "#09090F",
+    background: "var(--bg2)",
     borderTop: "1px solid rgba(240,238,248,0.05)",
     borderBottom: "1px solid rgba(240,238,248,0.05)",
   }}>
@@ -39,7 +47,7 @@ export const Stats = () => (
             fontWeight: 800,
             fontSize: "clamp(40px, 5vw, 56px)",
             lineHeight: 1,
-            background: "linear-gradient(135deg, #7B4FFF, #00E5FF)",
+            background: "var(--grad-main)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
@@ -48,7 +56,7 @@ export const Stats = () => (
           </div>
           <div style={{
             fontFamily: "'JetBrains Mono', monospace",
-            color: "#A5A2BD",
+            color: "var(--muted)",
             fontSize: 11,
             letterSpacing: "0.15em",
             textTransform: "uppercase",
