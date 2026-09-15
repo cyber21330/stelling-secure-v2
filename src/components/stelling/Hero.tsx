@@ -146,9 +146,10 @@ export const Hero = () => {
           >
             Solicitar Diagnóstico Ejecutivo
           </button>
-          <button
-            onClick={() => scrollTo("services")}
+          <a
+            href="/servicios/"
             style={{
+              display: "inline-block",
               background: "transparent",
               border: "1px solid rgba(0,229,255,0.35)",
               color: "#00E5FF",
@@ -157,16 +158,18 @@ export const Hero = () => {
               fontSize: isMobile ? 12 : 13,
               letterSpacing: "0.15em",
               textTransform: "uppercase",
+              textDecoration: "none",
               padding: isMobile ? "12px 24px" : "14px 32px",
               borderRadius: 2,
               width: isMobile ? "100%" : "auto",
+              textAlign: "center",
               transition: "all 0.25s ease",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,229,255,0.08)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
           >
             Ver servicios
-          </button>
+          </a>
         </motion.div>
 
         {/* Microcopy */}

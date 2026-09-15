@@ -37,9 +37,9 @@ export const Footer = () => (
           <div style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--cyan)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 16 }}>
             Servicios
           </div>
-          <FooterLink href="/#services">Auditoría de Seguridad Web</FooterLink>
-          <FooterLink href="/#services">Evaluación de Ciberseguridad para PYMES</FooterLink>
-          <FooterLink href="/#services">Desarrollo Seguro</FooterLink>
+          <FooterLink href="/servicios/auditoria-seguridad-web/">Auditoría de Seguridad Web</FooterLink>
+          <FooterLink href="/servicios/evaluacion-ciberseguridad-pymes/">Evaluación de Ciberseguridad para PYMES</FooterLink>
+          <FooterLink href="/servicios/desarrollo-seguro/">Desarrollo Seguro</FooterLink>
         </div>
         <div>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--cyan)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 16 }}>

@@ -7,7 +7,7 @@ type NavItem =
   | { kind: "dropdown"; label: string; items: { label: string; href: string }[] };
 
 const navItems: NavItem[] = [
-  { kind: "anchor", id: "services", label: "Servicios", href: "/#services" },
+  { kind: "anchor", id: "services", label: "Servicios", href: "/servicios/" },
   {
     kind: "dropdown",
     label: "Empresa",
@@ -65,11 +65,11 @@ export const Navbar = () => {
     return () => observer.disconnect();
   }, []);
 
-  const handleAnchorClick = (e: React.MouseEvent, id: string) => {
+  const handleAnchorClick = (e: React.MouseEvent, item: NavItem & { kind: "anchor" }) => {
     setOpen(false);
-    if (window.location.pathname === "/") {
+    if (item.href.startsWith("/#") && window.location.pathname === "/") {
       e.preventDefault();
-      const el = document.getElementById(id);
+      const el = document.getElementById(item.id);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
@@ -189,7 +189,7 @@ export const Navbar = () => {
                 <a
                   key={item.id}
                   href={item.href}
-                  onClick={(e) => handleAnchorClick(e, item.id)}
+                  onClick={(e) => handleAnchorClick(e, item)}
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
                     fontSize: 11,
@@ -346,7 +346,7 @@ export const Navbar = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
-                  onClick={(e) => handleAnchorClick(e, item.id)}
+                  onClick={(e) => handleAnchorClick(e, item)}
                   onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text)")}
                   style={{
