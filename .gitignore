@@ -7,3 +7,4 @@ dist/
 .astro/collections/
 .astro/content-assets.mjs
 .astro/content-modules.mjs
+.wrangler/
