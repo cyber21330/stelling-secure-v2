@@ -20,6 +20,10 @@ const navItems: NavItem[] = [
   { kind: "anchor", id: "contact", label: "Contacto", href: "/#contact" },
 ];
 
+const contactNavItem = navItems.find(
+  (item): item is NavItem & { kind: "anchor" } => item.kind === "anchor" && item.id === "contact"
+)!;
+
 export const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -212,7 +216,7 @@ export const Navbar = () => {
               href="/#contact"
               animate={{ opacity: scrolled ? 1 : 0, pointerEvents: scrolled ? "auto" : "none" }}
               transition={{ duration: 0.4 }}
-              onClick={(e) => handleAnchorClick(e, "contact")}
+              onClick={(e) => handleAnchorClick(e, contactNavItem)}
               style={{
                 fontFamily: "'JetBrains Mono', monospace",
                 // Texto largo ("Solicitar Diagnóstico Ejecutivo") + nav
