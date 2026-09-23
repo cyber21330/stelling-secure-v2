@@ -88,7 +88,7 @@ export const Navbar = () => {
           right: 0,
           height: 72,
           zIndex: 100,
-          background: scrolled ? "rgba(5,5,8,0.92)" : "transparent",
+          background: scrolled ? "rgba(23,36,52,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
           borderBottom: scrolled ? "1px solid var(--line)" : "1px solid transparent",
@@ -153,7 +153,7 @@ export const Navbar = () => {
                     >
                       <div
                         style={{
-                          background: "rgba(9,9,15,0.98)",
+                          background: "var(--bg-2)",
                           border: "1px solid rgba(240,238,248,0.08)",
                           borderRadius: 4,
                           padding: "8px 0",
@@ -278,7 +278,7 @@ export const Navbar = () => {
               position: "fixed",
               inset: 0,
               zIndex: 90,
-              background: "var(--bg)",
+              background: "var(--bg-2)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",

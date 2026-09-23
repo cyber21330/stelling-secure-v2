@@ -12,7 +12,7 @@ const FooterLink = ({ children, href = "#" }: { children: React.ReactNode; href?
 );
 
 export const Footer = () => (
-  <footer style={{ background: "var(--bg2)", borderTop: "1px solid rgba(240,238,248,0.06)" }}>
+  <footer style={{ background: "var(--bg-1)", borderTop: "1px solid rgba(240,238,248,0.06)" }}>
     <div style={{ maxWidth: 1100, margin: "0 auto", padding: "64px 24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 48 }}>
       <div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>

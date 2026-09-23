@@ -25,7 +25,7 @@ export const ServiceCard = ({ service, featured = false }: ServiceCardProps) => 
       style={{
         display: "block",
         textDecoration: "none",
-        background: featured ? "var(--bg4)" : "var(--bg3)",
+        background: featured ? "var(--bg-2)" : "var(--bg-1)",
         border: featured ? "1px solid var(--shield-bdr)" : "1px solid var(--line)",
         borderRadius: 3,
         padding: isComplementary ? 24 : featured ? 48 : 32,

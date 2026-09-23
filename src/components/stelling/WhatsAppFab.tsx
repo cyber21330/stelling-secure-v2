@@ -36,7 +36,7 @@ export const WhatsAppFab = () => {
                   top: "50%",
                   transform: "translateY(-50%)",
                   whiteSpace: "nowrap",
-                  background: "var(--bg2)",
+                  background: "var(--bg-2)",
                   border: "1px solid var(--shield-bdr)",
                   color: "var(--text)",
                   fontFamily: "'JetBrains Mono', monospace",

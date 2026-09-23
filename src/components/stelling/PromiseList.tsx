@@ -32,7 +32,7 @@ export const PromiseList = ({ promises }: PromiseListProps) => (
               show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
             }}
             style={{
-              background: "var(--bg3)",
+              background: "var(--bg-1)",
               border: "1px solid var(--line)",
               borderRadius: 3,
               padding: 32,

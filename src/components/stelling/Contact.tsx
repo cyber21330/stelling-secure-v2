@@ -18,7 +18,7 @@ type FieldName = "nombre" | "email" | "empresa" | "mensaje";
 const ERROR_COLOR = "var(--error)";
 
 const inputBase: React.CSSProperties = {
-  background: "var(--bg3)",
+  background: "var(--bg-1)",
   color: "var(--text)",
   fontFamily: "'Space Grotesk', sans-serif",
   fontWeight: 300,
@@ -213,7 +213,7 @@ export const Contact = () => {
               disabled={submitting || !turnstileToken}
               style={{
                 background: "var(--grad-main)",
-                color: "var(--bg)",
+                color: "var(--bg-0)",
                 fontFamily: "'JetBrains Mono', monospace",
                 fontWeight: 600,
                 fontSize: 13,

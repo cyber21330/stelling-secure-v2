@@ -14,7 +14,7 @@ export const FAQ = () => {
   const [open, setOpen] = useState<number>(0);
 
   return (
-    <section id="faq" style={{ padding: "128px 24px", background: "var(--bg2)" }}>
+    <section id="faq" style={{ padding: "128px 24px", background: "var(--bg-1)" }}>
       <div style={{ maxWidth: 760, margin: "0 auto" }}>
         <Reveal x={-20} y={0}>
           <div className="slabel">04 · Preguntas frecuentes</div>

@@ -8,7 +8,7 @@ export const ServiceContactCTA = () => (
       style={{
         display: "inline-block",
         background: "var(--grad-main)",
-        color: "var(--bg)",
+        color: "var(--bg-0)",
         fontWeight: 600,
         fontSize: 13,
         letterSpacing: "0.15em",

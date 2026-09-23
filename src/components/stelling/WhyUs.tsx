@@ -11,7 +11,7 @@ interface WhyUsProps {
 }
 
 export const WhyUs = ({ promises }: WhyUsProps) => (
-  <section id="why" style={{ padding: "128px 24px", background: "var(--bg2)" }}>
+  <section id="why" style={{ padding: "128px 24px", background: "var(--bg-1)" }}>
     <div style={{ maxWidth: 1100, margin: "0 auto" }}>
       <Reveal x={-20} y={0}>
         <div className="slabel">02 · Por qué nosotros</div>
@@ -42,7 +42,7 @@ export const WhyUs = ({ promises }: WhyUsProps) => (
               show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
             }}
             style={{
-              background: "var(--bg3)",
+              background: "var(--bg-1)",
               border: "1px solid var(--line)",
               borderRadius: 3,
               padding: 32,
