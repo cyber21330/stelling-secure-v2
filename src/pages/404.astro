@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Página no encontrada | Stelling Secure"
+  description="La página que buscas no existe o se ha movido."
+  canonicalPath="/404"
+  noindex={true}
+>
+  <main style="min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px;">
+    <h1 style="font-size: 2rem; margin-bottom: 12px;">404 — Página no encontrada</h1>
+    <p style="margin-bottom: 24px; color: #555;">La página que buscas no existe o se ha movido.</p>
+    <a href="/" style="padding: 12px 24px; background: #172434; color: #ffffff; border-radius: 6px; text-decoration: none;">
+      Volver al inicio
+    </a>
+  </main>
+</Layout>
