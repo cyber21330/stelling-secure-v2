@@ -25,8 +25,8 @@ export const ServiceDetail = ({ service }: ServiceDetailProps) => (
   <article style={{ maxWidth: 1100, margin: "0 auto", padding: "0 24px" }}>
     <header style={{ marginBottom: 64, maxWidth: 720 }}>
       <h1
+        className="font-display"
         style={{
-          fontFamily: "'Syne', sans-serif",
           color: "var(--text)",
           fontWeight: 700,
           fontSize: "clamp(32px, 5vw, 48px)",
@@ -39,7 +39,7 @@ export const ServiceDetail = ({ service }: ServiceDetailProps) => (
       <p
         style={{
           fontFamily: "'Space Grotesk', sans-serif",
-          color: "rgba(0,229,255,0.7)",
+          color: "var(--text-secondary)",
           fontSize: 18,
           lineHeight: 1.7,
         }}

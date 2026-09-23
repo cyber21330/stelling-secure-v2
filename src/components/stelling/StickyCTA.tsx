@@ -29,7 +29,7 @@ export const StickyCTA = () => {
             zIndex: 200,
             background: "var(--grad-main)",
             padding: 16,
-            color: "var(--bg)",
+            color: "var(--bg-0)",
             fontFamily: "'JetBrains Mono', monospace",
             fontWeight: 600,
             fontSize: 13,

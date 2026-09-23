@@ -15,10 +15,10 @@ const schema = z.object({
 });
 
 type FieldName = "nombre" | "email" | "empresa" | "mensaje";
-const ERROR_COLOR = "var(--magenta)";
+const ERROR_COLOR = "var(--error)";
 
 const inputBase: React.CSSProperties = {
-  background: "var(--bg3)",
+  background: "var(--bg-1)",
   color: "var(--text)",
   fontFamily: "'Space Grotesk', sans-serif",
   fontWeight: 300,
@@ -42,8 +42,8 @@ export const Contact = () => {
 
   const borderFor = (name: FieldName, focused: boolean) => {
     if (errors[name]) return ERROR_COLOR;
-    if (focused) return "var(--cyan)";
-    if (touched[name]) return "rgba(0,229,255,0.2)";
+    if (focused) return "var(--shield)";
+    if (touched[name]) return "var(--shield-dim)";
     return "var(--line)";
   };
 
@@ -124,7 +124,7 @@ export const Contact = () => {
         e.currentTarget.style.borderColor = borderFor(name, false);
       },
       onFocus: (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        e.currentTarget.style.borderColor = errors[name] ? ERROR_COLOR : "var(--cyan)";
+        e.currentTarget.style.borderColor = errors[name] ? ERROR_COLOR : "var(--shield)";
       },
       onChange: () => {
         if (errors[name]) setErrors((er) => ({ ...er, [name]: undefined }));
@@ -153,7 +153,7 @@ export const Contact = () => {
       id="contact"
       style={{
         padding: "128px 24px",
-        background: "radial-gradient(ellipse 50% 60% at 50% 50%, rgba(123,79,255,0.07) 0%, transparent 70%), var(--bg)",
+        background: "var(--bg-0)",
       }}
     >
       <div style={{ maxWidth: 760, margin: "0 auto", textAlign: "center" }}>
@@ -163,7 +163,7 @@ export const Contact = () => {
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p style={{ fontFamily: "'Syne', sans-serif", color: "rgba(0,229,255,0.6)", fontSize: 22, fontWeight: 400, marginBottom: 48 }}>
+          <p className="font-display" style={{ color: "var(--text-secondary)", fontSize: 22, fontWeight: 400, marginBottom: 48 }}>
             Cuéntanos tu proyecto. Primera consulta sin coste.
           </p>
         </Reveal>
@@ -202,7 +202,7 @@ export const Contact = () => {
 
             <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 10, textAlign: "center" }}>
               Protección de datos: Responsable: Alfredo Stelling Bell (Stelling Secure). Utilizaremos los datos que nos facilites para gestionar y responder tu solicitud y, cuando corresponda, adoptar medidas previas a una posible contratación solicitada por ti. Puedes ejercer tus derechos escribiendo a hola@stellingsecure.com. Más información en nuestra{" "}
-              <a href="/legal/privacidad/" style={{ color: "var(--cyan)" }}>
+              <a href="/legal/privacidad/" style={{ color: "var(--shield)" }}>
                 Política de Privacidad
               </a>
               .
@@ -213,7 +213,7 @@ export const Contact = () => {
               disabled={submitting || !turnstileToken}
               style={{
                 background: "var(--grad-main)",
-                color: "var(--bg)",
+                color: "var(--bg-0)",
                 fontFamily: "'JetBrains Mono', monospace",
                 fontWeight: 600,
                 fontSize: 13,
@@ -234,7 +234,7 @@ export const Contact = () => {
 
             <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 11, textAlign: "center" }}>
               También puedes escribirnos a{" "}
-              <a href="mailto:hola@stellingsecure.com" style={{ color: "var(--cyan)" }}>
+              <a href="mailto:hola@stellingsecure.com" style={{ color: "var(--shield)" }}>
                 hola@stellingsecure.com
               </a>
             </p>

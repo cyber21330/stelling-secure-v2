@@ -43,8 +43,8 @@ export const CustomCursor = () => {
         ringRef.current.style.transform = `translate3d(${pos.current.x - size / 2}px, ${pos.current.y - size / 2}px, 0)`;
         ringRef.current.style.width = `${size}px`;
         ringRef.current.style.height = `${size}px`;
-        ringRef.current.style.borderColor = hovering ? "var(--violet)" : "var(--cyan)";
-        ringRef.current.style.background = hovering ? "rgba(123,79,255,0.1)" : "transparent";
+        ringRef.current.style.borderColor = hovering ? "var(--text-primary)" : "var(--shield)";
+        ringRef.current.style.background = hovering ? "var(--shield-dim)" : "transparent";
       }
       raf = requestAnimationFrame(tick);
     };
@@ -72,11 +72,11 @@ export const CustomCursor = () => {
           width: 6,
           height: 6,
           borderRadius: "50%",
-          background: "var(--cyan)",
+          background: "var(--shield)",
           pointerEvents: "none",
           zIndex: 9999,
           willChange: "transform",
-          boxShadow: "0 0 8px rgba(0,229,255,0.8)",
+          boxShadow: "0 0 8px rgba(155,168,181,0.8)",
         }}
       />
       <div
@@ -87,7 +87,7 @@ export const CustomCursor = () => {
           left: 0,
           width: 28,
           height: 28,
-          border: "1.5px solid var(--cyan)",
+          border: "1.5px solid var(--shield)",
           borderRadius: "50%",
           pointerEvents: "none",
           zIndex: 9999,

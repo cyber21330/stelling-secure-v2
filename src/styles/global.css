@@ -1,12 +1,4 @@
 /* ── FONTS ── */
-@font-face {
-  font-family: 'Dune Rise';
-  src: url('/fonts/Dune_Rise.woff2') format('woff2'),
-       url('/fonts/Dune_Rise.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 @import '@fontsource/syne/400.css';
 @import '@fontsource/syne/500.css';
 @import '@fontsource/syne/600.css';
@@ -47,8 +39,19 @@
   --muted:       #A5A2BD;
   --faint:       rgba(240,238,248,0.04);
   --line:        rgba(240,238,248,0.07);
-  --grad-main:   linear-gradient(135deg, #7B4FFF 0%, #00E5FF 100%);
-  --grad-text:   linear-gradient(90deg, #7B4FFF, #00E5FF);
+  --grad-main:   #9BA8B5;
+  --grad-text:   linear-gradient(90deg, #9BA8B5, #E2E5E7);
+
+  /* ── BRAND V3 (navy / steel-blue) ── */
+  --bg-0:           #172434;
+  --bg-1:           #1E2F43;
+  --bg-2:           #253B55;
+  --shield:         #9BA8B5;
+  --text-primary:   #E2E5E7;
+  --text-secondary: #7E8B99;
+  --shield-dim:     rgba(155,168,181,0.15);
+  --shield-bdr:     rgba(155,168,181,0.3);
+  --error:          #FF6B6B;
 }
 
 /* ── RESET ── */
@@ -63,9 +66,9 @@ html {
 }
 
 body {
-  background: var(--bg);
+  background: var(--bg-0);
   color: var(--text);
-  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   font-weight: 300;
   line-height: 1.6;
   overflow-x: hidden;
@@ -83,7 +86,7 @@ body::before {
 }
 
 /* ── TYPOGRAPHY ── */
-.font-display  { font-family: 'Syne', sans-serif; }
+.font-display  { font-family: 'Plus Jakarta Sans', sans-serif; }
 .font-body     { font-family: 'Space Grotesk', sans-serif; }
 .font-mono     { font-family: 'JetBrains Mono', monospace; }
 
@@ -103,7 +106,7 @@ body::before {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
   letter-spacing: 0.3em;
-  color: var(--cyan);
+  color: var(--shield);
   text-transform: uppercase;
   margin-bottom: 56px;
 }
@@ -111,14 +114,14 @@ body::before {
   content: '';
   width: 24px;
   height: 1px;
-  background: var(--cyan);
+  background: var(--shield);
 }
 .slabel::after {
   content: '';
   flex: 1;
   max-width: 140px;
   height: 1px;
-  background: linear-gradient(90deg, var(--cyan-bdr), transparent);
+  background: linear-gradient(90deg, rgba(155,168,181,0.4), transparent);
 }
 
 /* ── CURSOR HIDE on interactive ── */

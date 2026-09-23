@@ -47,7 +47,7 @@ export const Hero = () => {
         justifyContent: "center",
         padding: isMobile ? "100px 20px 60px" : "0 24px",
         background:
-          "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(123,79,255,0.08) 0%, transparent 70%), #050508",
+          "var(--bg-0)",
       }}
     >
       <h1 className="sr-only">Identifica tus riesgos. Prioriza lo importante. Protege tu negocio.</h1>
@@ -101,9 +101,9 @@ export const Hero = () => {
         {/* Subheadline */}
         <motion.p
           variants={fadeUp} initial="hidden" animate="show" custom={2}
+          className="font-display"
           style={{
-            fontFamily: "'Syne', sans-serif",
-            color: "rgba(0,229,255,0.7)",
+            color: "var(--text-secondary)",
             fontSize: isMobile ? 16 : "clamp(18px, 2.5vw, 26px)",
             fontWeight: 400,
             maxWidth: 860,
@@ -151,8 +151,8 @@ export const Hero = () => {
             style={{
               display: "inline-block",
               background: "transparent",
-              border: "1px solid rgba(0,229,255,0.35)",
-              color: "#00E5FF",
+              border: "1px solid var(--shield-bdr)",
+              color: "var(--shield)",
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 500,
               fontSize: isMobile ? 12 : 13,
@@ -165,7 +165,7 @@ export const Hero = () => {
               textAlign: "center",
               transition: "all 0.25s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,229,255,0.08)")}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "var(--shield-dim)")}
             onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
           >
             Ver servicios
@@ -202,7 +202,7 @@ export const Hero = () => {
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            style={{ width: 1, height: 32, background: "linear-gradient(180deg, #7B4FFF, #00E5FF)" }}
+            style={{ width: 1, height: 32, background: "var(--shield-bdr)" }}
           />
         </motion.div>
       )}

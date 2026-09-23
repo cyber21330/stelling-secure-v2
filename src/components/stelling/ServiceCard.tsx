@@ -25,24 +25,24 @@ export const ServiceCard = ({ service, featured = false }: ServiceCardProps) => 
       style={{
         display: "block",
         textDecoration: "none",
-        background: featured ? "var(--bg4)" : "var(--bg3)",
-        border: featured ? "1px solid var(--violet-bdr)" : "1px solid var(--line)",
+        background: featured ? "var(--bg-2)" : "var(--bg-1)",
+        border: featured ? "1px solid var(--shield-bdr)" : "1px solid var(--line)",
         borderRadius: 3,
         padding: isComplementary ? 24 : featured ? 48 : 32,
         transition: "border-color 0.3s ease",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = featured ? "#7B4FFF" : "rgba(0,229,255,0.35)";
+        e.currentTarget.style.borderColor = featured ? "var(--shield)" : "var(--shield-bdr)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = featured ? "var(--violet-bdr)" : "var(--line)";
+        e.currentTarget.style.borderColor = featured ? "var(--shield-bdr)" : "var(--line)";
       }}
     >
       {featured && (
         <div
           className="font-mono"
           style={{
-            color: "var(--cyan)",
+            color: "var(--shield)",
             fontSize: 10,
             letterSpacing: "0.25em",
             textTransform: "uppercase",
@@ -54,8 +54,8 @@ export const ServiceCard = ({ service, featured = false }: ServiceCardProps) => 
         </div>
       )}
       <h3
+        className="font-display"
         style={{
-          fontFamily: "'Syne', sans-serif",
           color: "var(--text)",
           fontWeight: featured ? 700 : 600,
           fontSize: featured ? "clamp(26px, 3.5vw, 36px)" : isComplementary ? 18 : 24,

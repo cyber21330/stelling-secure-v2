@@ -32,13 +32,13 @@ export const PromiseList = ({ promises }: PromiseListProps) => (
               show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
             }}
             style={{
-              background: "var(--bg3)",
+              background: "var(--bg-1)",
               border: "1px solid var(--line)",
               borderRadius: 3,
               padding: 32,
               transition: "border-color 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--violet-bdr)")}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--shield-bdr)")}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--line)")}
           >
             <div style={{

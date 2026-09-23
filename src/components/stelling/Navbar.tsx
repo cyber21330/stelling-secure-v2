@@ -88,7 +88,7 @@ export const Navbar = () => {
           right: 0,
           height: 72,
           zIndex: 100,
-          background: scrolled ? "rgba(5,5,8,0.92)" : "transparent",
+          background: scrolled ? "rgba(23,36,52,0.92)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
           borderBottom: scrolled ? "1px solid var(--line)" : "1px solid transparent",
@@ -132,7 +132,7 @@ export const Navbar = () => {
                         fontSize: 11,
                         letterSpacing: "0.2em",
                         textTransform: "uppercase",
-                        color: isEmpresaRoute || empresaOpen ? "var(--cyan)" : "var(--muted)",
+                        color: isEmpresaRoute || empresaOpen ? "var(--shield)" : "var(--muted)",
                         cursor: "default",
                         transition: "color 0.25s ease",
                       }}
@@ -153,7 +153,7 @@ export const Navbar = () => {
                     >
                       <div
                         style={{
-                          background: "rgba(9,9,15,0.98)",
+                          background: "var(--bg-2)",
                           border: "1px solid rgba(240,238,248,0.08)",
                           borderRadius: 4,
                           padding: "8px 0",
@@ -177,7 +177,7 @@ export const Navbar = () => {
                               transition: "color 0.2s ease",
                               textDecoration: "none",
                             }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--shield)")}
                             onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
                           >
                             {sub.label}
@@ -199,7 +199,7 @@ export const Navbar = () => {
                     fontSize: 11,
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: active === item.id ? "var(--cyan)" : "var(--muted)",
+                    color: active === item.id ? "var(--shield)" : "var(--muted)",
                     background: "none",
                     border: "none",
                     transition: "color 0.25s ease",
@@ -228,15 +228,15 @@ export const Navbar = () => {
                 letterSpacing: "0.15em",
                 textTransform: "uppercase",
                 whiteSpace: "nowrap",
-                border: "1px solid rgba(0,229,255,0.3)",
-                color: "var(--cyan)",
+                border: "1px solid var(--shield-bdr)",
+                color: "var(--shield)",
                 background: "transparent",
                 padding: "8px clamp(10px, calc(3.55vw - 17.24px), 20px)",
                 borderRadius: 2,
                 transition: "all 0.25s ease",
                 textDecoration: "none",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,229,255,0.08)")}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "var(--shield-dim)")}
               onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
             >
               Solicitar Diagnóstico Ejecutivo
@@ -278,7 +278,7 @@ export const Navbar = () => {
               position: "fixed",
               inset: 0,
               zIndex: 90,
-              background: "var(--bg)",
+              background: "var(--bg-2)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -300,7 +300,7 @@ export const Navbar = () => {
                       style={{
                         fontFamily: "'JetBrains Mono', monospace",
                         fontSize: 32,
-                        color: isEmpresaRoute ? "var(--cyan)" : "var(--text)",
+                        color: isEmpresaRoute ? "var(--shield)" : "var(--text)",
                         fontWeight: 300,
                         textTransform: "uppercase",
                         letterSpacing: "0.2em",
@@ -351,7 +351,7 @@ export const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
                   onClick={(e) => handleAnchorClick(e, item)}
-                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--shield)")}
                   onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text)")}
                   style={{
                     fontFamily: "'JetBrains Mono', monospace",
