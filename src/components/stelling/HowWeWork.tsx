@@ -67,7 +67,7 @@ export const HowWeWork = ({ variant = "standalone" }: HowWeWorkProps) => (
             }}>
               {s.num}
             </div>
-            <h3 style={{ fontFamily: "'Syne', sans-serif", color: "var(--text)", fontWeight: 600, fontSize: 22, marginBottom: 12 }}>
+            <h3 className="font-display" style={{ color: "var(--text)", fontWeight: 600, fontSize: 22, marginBottom: 12 }}>
               {s.title}
             </h3>
             <p style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--muted)", fontSize: 14, lineHeight: 1.75 }}>

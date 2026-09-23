@@ -27,7 +27,7 @@ export const Footer = () => (
         <p style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--muted)", fontSize: 11, marginBottom: 24 }}>
           Valencia, España
         </p>
-        <p style={{ fontFamily: "'Syne', sans-serif", color: "rgba(0,229,255,0.35)", fontSize: 18, fontWeight: 500 }}>
+        <p className="font-display" style={{ color: "var(--text-secondary)", fontSize: 18, fontWeight: 500 }}>
           Tu negocio, construido y blindado.
         </p>
       </div>

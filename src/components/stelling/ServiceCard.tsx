@@ -54,8 +54,8 @@ export const ServiceCard = ({ service, featured = false }: ServiceCardProps) => 
         </div>
       )}
       <h3
+        className="font-display"
         style={{
-          fontFamily: "'Syne', sans-serif",
           color: "var(--text)",
           fontWeight: featured ? 700 : 600,
           fontSize: featured ? "clamp(26px, 3.5vw, 36px)" : isComplementary ? 18 : 24,

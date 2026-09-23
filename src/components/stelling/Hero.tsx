@@ -101,8 +101,8 @@ export const Hero = () => {
         {/* Subheadline */}
         <motion.p
           variants={fadeUp} initial="hidden" animate="show" custom={2}
+          className="font-display"
           style={{
-            fontFamily: "'Syne', sans-serif",
             color: "rgba(0,229,255,0.7)",
             fontSize: isMobile ? 16 : "clamp(18px, 2.5vw, 26px)",
             fontWeight: 400,

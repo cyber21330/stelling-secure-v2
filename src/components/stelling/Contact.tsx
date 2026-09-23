@@ -163,7 +163,7 @@ export const Contact = () => {
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p style={{ fontFamily: "'Syne', sans-serif", color: "rgba(0,229,255,0.6)", fontSize: 22, fontWeight: 400, marginBottom: 48 }}>
+          <p className="font-display" style={{ color: "var(--text-secondary)", fontSize: 22, fontWeight: 400, marginBottom: 48 }}>
             Cuéntanos tu proyecto. Primera consulta sin coste.
           </p>
         </Reveal>

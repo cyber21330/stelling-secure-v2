@@ -12,8 +12,8 @@ export const ServiceTextBlock = ({ heading, text }: ServiceTextBlockProps) => {
   return (
     <div style={{ marginBottom: 48 }}>
       <h2
+        className="font-display"
         style={{
-          fontFamily: "'Syne', sans-serif",
           color: "var(--text)",
           fontWeight: 600,
           fontSize: 22,
