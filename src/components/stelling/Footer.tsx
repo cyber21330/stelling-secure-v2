@@ -4,7 +4,7 @@ const FooterLink = ({ children, href = "#" }: { children: React.ReactNode; href?
   <a
     href={href}
     style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 12, color: "var(--muted)", display: "block", padding: "4px 0", transition: "color 0.2s ease" }}
-    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--cyan)")}
+    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--shield)")}
     onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
   >
     {children}
@@ -34,7 +34,7 @@ export const Footer = () => (
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
         <div>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--cyan)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 16 }}>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--shield)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 16 }}>
             Servicios
           </div>
           <FooterLink href="/servicios/auditoria-seguridad-web/">Auditoría de Seguridad Web</FooterLink>
@@ -42,7 +42,7 @@ export const Footer = () => (
           <FooterLink href="/servicios/desarrollo-seguro/">Desarrollo Seguro</FooterLink>
         </div>
         <div>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--cyan)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 16 }}>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", color: "var(--shield)", fontSize: 10, letterSpacing: "0.25em", textTransform: "uppercase", marginBottom: 16 }}>
             Empresa
           </div>
           <FooterLink href="/#how-we-work">Cómo trabajamos</FooterLink>

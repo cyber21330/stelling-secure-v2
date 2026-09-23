@@ -49,6 +49,9 @@
   --shield:         #9BA8B5;
   --text-primary:   #E2E5E7;
   --text-secondary: #7E8B99;
+  --shield-dim:     rgba(155,168,181,0.15);
+  --shield-bdr:     rgba(155,168,181,0.3);
+  --error:          #FF6B6B;
 }
 
 /* ── RESET ── */

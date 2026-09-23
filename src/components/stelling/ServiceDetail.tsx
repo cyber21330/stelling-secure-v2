@@ -39,7 +39,7 @@ export const ServiceDetail = ({ service }: ServiceDetailProps) => (
       <p
         style={{
           fontFamily: "'Space Grotesk', sans-serif",
-          color: "rgba(0,229,255,0.7)",
+          color: "var(--text-secondary)",
           fontSize: 18,
           lineHeight: 1.7,
         }}

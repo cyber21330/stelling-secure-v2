@@ -36,7 +36,7 @@ export const ServiceListBlock = ({ heading, items }: ServiceListBlockProps) => {
               listStyle: "none",
             }}
           >
-            <span style={{ position: "absolute", left: 0, color: "var(--cyan)" }}>—</span>
+            <span style={{ position: "absolute", left: 0, color: "var(--shield)" }}>—</span>
             {item}
           </li>
         ))}

@@ -34,7 +34,7 @@ export const FAQ = () => {
                   key={i}
                   style={{
                     borderBottom: "1px solid var(--line)",
-                    borderLeft: isOpen ? "2px solid var(--cyan)" : "2px solid transparent",
+                    borderLeft: isOpen ? "2px solid var(--shield)" : "2px solid transparent",
                     transition: "border-color 0.25s ease",
                   }}
                 >
@@ -49,7 +49,7 @@ export const FAQ = () => {
                     <motion.span
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ duration: 0.2 }}
-                      style={{ color: "var(--cyan)", fontSize: 24, fontWeight: 300, marginLeft: 16, flexShrink: 0 }}
+                      style={{ color: "var(--shield)", fontSize: 24, fontWeight: 300, marginLeft: 16, flexShrink: 0 }}
                     >
                       +
                     </motion.span>

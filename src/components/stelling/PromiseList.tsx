@@ -38,7 +38,7 @@ export const PromiseList = ({ promises }: PromiseListProps) => (
               padding: 32,
               transition: "border-color 0.3s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--violet-bdr)")}
+            onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--shield-bdr)")}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--line)")}
           >
             <div style={{

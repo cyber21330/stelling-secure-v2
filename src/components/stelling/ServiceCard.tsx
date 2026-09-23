@@ -26,23 +26,23 @@ export const ServiceCard = ({ service, featured = false }: ServiceCardProps) => 
         display: "block",
         textDecoration: "none",
         background: featured ? "var(--bg4)" : "var(--bg3)",
-        border: featured ? "1px solid var(--violet-bdr)" : "1px solid var(--line)",
+        border: featured ? "1px solid var(--shield-bdr)" : "1px solid var(--line)",
         borderRadius: 3,
         padding: isComplementary ? 24 : featured ? 48 : 32,
         transition: "border-color 0.3s ease",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = featured ? "#7B4FFF" : "rgba(0,229,255,0.35)";
+        e.currentTarget.style.borderColor = featured ? "var(--shield)" : "var(--shield-bdr)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = featured ? "var(--violet-bdr)" : "var(--line)";
+        e.currentTarget.style.borderColor = featured ? "var(--shield-bdr)" : "var(--line)";
       }}
     >
       {featured && (
         <div
           className="font-mono"
           style={{
-            color: "var(--cyan)",
+            color: "var(--shield)",
             fontSize: 10,
             letterSpacing: "0.25em",
             textTransform: "uppercase",
