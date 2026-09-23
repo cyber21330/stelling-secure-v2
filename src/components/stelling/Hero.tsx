@@ -129,7 +129,7 @@ export const Hero = () => {
             onClick={() => scrollTo("contact")}
             style={{
               background: "var(--grad-main)",
-              color: "#050508",
+              color: "var(--bg-0)",
               fontFamily: "'JetBrains Mono', monospace",
               fontWeight: 600,
               fontSize: isMobile ? 12 : 13,
