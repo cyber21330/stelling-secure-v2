@@ -13,7 +13,7 @@ evaluation:
   - "Actualizaciones"
   - "Copias de seguridad"
   - "Correo electrónico"
-  - "Exposición externa (revisión superficial; el análisis en profundidad corresponde a la Auditoría de Seguridad Web)"
+  - "Exposición externa (comprobaciones básicas visibles desde Internet, como cabeceras de seguridad y certificado HTTPS; el análisis completo corresponde a la Auditoría de Seguridad Web)"
   - "Proveedores tecnológicos críticos"
 evidence: "Los riesgos y áreas de mejora identificados se documentan utilizando la información obtenida durante la evaluación y, cuando resulte aplicable, evidencias técnicas o documentales que permitan fundamentar las conclusiones y recomendaciones presentadas."
 decision: "Los resultados se organizan y priorizan para proporcionar a la dirección una visión comprensible de los principales riesgos identificados, facilitando la toma de decisiones sobre qué medidas abordar primero y dónde concentrar los recursos disponibles."
