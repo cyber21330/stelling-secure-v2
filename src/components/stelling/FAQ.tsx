@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Reveal } from "./Reveal";
 
 const faqs = [
-  { q: "¿Cuánto cuesta una página web para una PYME en Valencia?", a: "El coste varía según el proyecto. En Stelling Secure trabajamos con presupuestos adaptados a la realidad de cada negocio. Contáctanos para una primera consulta sin coste y te damos un presupuesto en 48 horas." },
-  { q: "¿Qué incluye una auditoría de seguridad web?", a: "Analizamos vulnerabilidades, configuración del servidor, CMS, plugins, exposición de datos sensibles, certificados SSL y configuración HTTPS. Entregamos informe con riesgos priorizados y plan de acción." },
-  { q: "¿Cuánto tarda en hacerse una web profesional?", a: "La mayoría de proyectos web para PYMEs los entregamos en 3 a 6 semanas desde el inicio. Siempre fijamos plazos claros desde el primer día." },
-  { q: "¿Podéis mejorar la seguridad de una web que ya tengo?", a: "Sí. Hacemos auditorías y hardening de webs existentes en WordPress, HTML estático, tiendas online y más. Analizamos tu caso y proponemos soluciones concretas." },
-  { q: "¿Ofrecéis mantenimiento web y seguridad continuada?", a: "Sí. Ofrecemos planes de mantenimiento mensual que incluyen actualizaciones, copias de seguridad, monitorización de seguridad y soporte técnico." },
+  { q: "¿Qué incluye la Auditoría de Seguridad Web?", a: "Evaluamos la exposición pública de tu sitio web, la configuración HTTPS/TLS, las cabeceras HTTP de seguridad y los componentes con vulnerabilidades públicas conocidas que sean detectables desde el exterior. Entregamos un informe ejecutivo, un informe técnico y recomendaciones priorizadas." },
+  { q: "¿Es lo mismo una auditoría que una prueba de intrusión (pentest)?", a: "No. Una prueba de intrusión intenta explotar vulnerabilidades como lo haría un atacante. Nuestra auditoría se limita a observar y analizar la exposición y la configuración, sin explotar vulnerabilidades." },
+  { q: "¿Necesitáis acceso a mis sistemas?", a: "Para la Auditoría de Seguridad Web no necesitamos credenciales ni acceso interno: trabajamos sobre lo que es visible desde Internet, siempre con tu autorización por escrito y sobre un alcance acordado previamente." },
+  { q: "¿Qué recibo al terminar?", a: "Un informe ejecutivo para dirección y un informe técnico, con los hallazgos priorizados y recomendaciones concretas. Cuando forma parte del alcance acordado, también un seguimiento de las correcciones." },
+  { q: "¿Cuánto cuesta?", a: "Depende del alcance de cada proyecto. Tras una primera conversación para definirlo, te enviamos una propuesta por escrito." },
 ];
 
 export const FAQ = () => {

@@ -109,7 +109,7 @@ export const Hero = () => {
             maxWidth: 860,
           }}
         >
-          Evaluamos la seguridad de tu empresa y convertimos los hallazgos en prioridades claras y acciones concretas para reducir el riesgo.
+          Evaluamos la exposición y los controles básicos de seguridad de tu empresa y convertimos los hallazgos en prioridades claras y acciones concretas para reducir el riesgo.
         </motion.p>
 
         {/* CTAs */}
