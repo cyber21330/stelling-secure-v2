@@ -4,10 +4,23 @@ import { Logo } from "./Logo";
 
 type NavItem =
   | { kind: "anchor"; id: string; label: string; href: string }
-  | { kind: "dropdown"; label: string; items: { label: string; href: string }[] };
+  // id/href opcionales: un desplegable con href es además un enlace
+  // (Servicios); sin href, el disparador es un <span> (Empresa).
+  | { kind: "dropdown"; label: string; items: { label: string; href: string }[]; id?: string; href?: string };
 
 const navItems: NavItem[] = [
-  { kind: "anchor", id: "services", label: "Servicios", href: "/servicios/" },
+  {
+    kind: "dropdown",
+    id: "services",
+    label: "Servicios",
+    href: "/servicios/",
+    // Mantener sincronizado con src/content/services/ y con Footer.tsx
+    items: [
+      { label: "Auditoría de Seguridad Web", href: "/servicios/auditoria-seguridad-web/" },
+      { label: "Evaluación de Ciberseguridad para PYMES", href: "/servicios/evaluacion-ciberseguridad-pymes/" },
+      { label: "Desarrollo Seguro", href: "/servicios/desarrollo-seguro/" },
+    ],
+  },
   {
     kind: "dropdown",
     label: "Empresa",
@@ -29,8 +42,9 @@ export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
-  const [empresaOpen, setEmpresaOpen] = useState(false);
-  const [empresaMobileOpen, setEmpresaMobileOpen] = useState(false);
+  // label del desplegable abierto (null = ninguno): solo uno a la vez
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
   const [isEmpresaRoute, setIsEmpresaRoute] = useState(false);
 
   useEffect(() => {
@@ -61,7 +75,7 @@ export const Navbar = () => {
       { rootMargin: "-40% 0px -55% 0px" }
     );
     navItems.forEach((item) => {
-      if (item.kind === "anchor") {
+      if (item.id) {
         const el = document.getElementById(item.id);
         if (el) observer.observe(el);
       }
@@ -113,34 +127,52 @@ export const Navbar = () => {
           <nav style={{ display: isMobile ? "none" : "flex", alignItems: "center", gap: 40 }}>
             {navItems.map((item) => {
               if (item.kind === "dropdown") {
+                const isOpen = openDropdown === item.label;
+                // Resaltado: con id (Servicios) sigue el IntersectionObserver
+                // de la Home; sin id (Empresa) depende de la ruta /empresa/.
+                // Abierto (hover/foco) usa el tono de hover de Contacto.
+                const isHighlighted = item.id ? active === item.id : isEmpresaRoute;
+                const triggerStyle = {
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: 11,
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase" as const,
+                  color: isHighlighted ? "var(--shield)" : isOpen ? "var(--text)" : "var(--muted)",
+                  transition: "color 0.25s ease",
+                };
                 return (
                   <div
                     key={item.label}
-                    onMouseEnter={() => setEmpresaOpen(true)}
-                    onMouseLeave={() => setEmpresaOpen(false)}
-                    onFocus={() => setEmpresaOpen(true)}
+                    onMouseEnter={() => setOpenDropdown(item.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
+                    onFocus={() => setOpenDropdown(item.label)}
                     onBlur={(e) => {
-                      if (!e.currentTarget.contains(e.relatedTarget as Node)) setEmpresaOpen(false);
+                      if (!e.currentTarget.contains(e.relatedTarget as Node)) setOpenDropdown(null);
                     }}
                     style={{ position: "relative" }}
                   >
-                    <span
-                      aria-haspopup="true"
-                      aria-expanded={empresaOpen}
-                      style={{
-                        fontFamily: "'JetBrains Mono', monospace",
-                        fontSize: 11,
-                        letterSpacing: "0.2em",
-                        textTransform: "uppercase",
-                        color: isEmpresaRoute || empresaOpen ? "var(--shield)" : "var(--muted)",
-                        cursor: "default",
-                        transition: "color 0.25s ease",
-                      }}
-                    >
-                      {item.label}
-                    </span>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        aria-haspopup="true"
+                        aria-expanded={isOpen}
+                        onClick={() => setOpenDropdown(null)}
+                        style={{ ...triggerStyle, textDecoration: "none" }}
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <span
+                        aria-haspopup="true"
+                        aria-expanded={isOpen}
+                        style={{ ...triggerStyle, cursor: "default" }}
+                      >
+                        {item.label}
+                      </span>
+                    )}
                     <motion.div
-                      animate={{ opacity: empresaOpen ? 1 : 0 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: isOpen ? 1 : 0 }}
                       transition={{ duration: 0.2 }}
                       style={{
                         position: "absolute",
@@ -148,7 +180,7 @@ export const Navbar = () => {
                         left: "50%",
                         transform: "translateX(-50%)",
                         paddingTop: 16,
-                        pointerEvents: empresaOpen ? "auto" : "none",
+                        pointerEvents: isOpen ? "auto" : "none",
                       }}
                     >
                       <div
@@ -177,7 +209,7 @@ export const Navbar = () => {
                               transition: "color 0.2s ease",
                               textDecoration: "none",
                             }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--shield)")}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                             onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
                           >
                             {sub.label}
@@ -214,6 +246,7 @@ export const Navbar = () => {
             })}
             <motion.a
               href="/#contact"
+              initial={{ opacity: 0, pointerEvents: "none" }}
               animate={{ opacity: scrolled ? 1 : 0, pointerEvents: scrolled ? "auto" : "none" }}
               transition={{ duration: 0.4 }}
               onClick={(e) => handleAnchorClick(e, contactNavItem)}
@@ -288,7 +321,13 @@ export const Navbar = () => {
               padding: "80px 24px",
             }}
           >
-            {navItems.map((item, i) => {
+            {navItems.map((navItem, i) => {
+              // Móvil: un desplegable con href (Servicios) se pinta como
+              // enlace directo, igual que antes del submenú de escritorio.
+              const item: NavItem =
+                navItem.kind === "dropdown" && navItem.id && navItem.href
+                  ? { kind: "anchor", id: navItem.id, label: navItem.label, href: navItem.href }
+                  : navItem;
               if (item.kind === "dropdown") {
                 return (
                   <div key={item.label} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 24 }}>
@@ -296,7 +335,7 @@ export const Navbar = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.1 + i * 0.08, duration: 0.4 }}
-                      onClick={() => setEmpresaMobileOpen((o) => !o)}
+                      onClick={() => setMobileOpenDropdown((o) => (o === item.label ? null : item.label))}
                       style={{
                         fontFamily: "'JetBrains Mono', monospace",
                         fontSize: 32,
@@ -311,7 +350,7 @@ export const Navbar = () => {
                       {item.label}
                     </motion.button>
                     <AnimatePresence>
-                      {empresaMobileOpen && (
+                      {mobileOpenDropdown === item.label && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
