@@ -246,6 +246,7 @@ export const Navbar = () => {
             })}
             <motion.a
               href="/#contact"
+              initial={{ opacity: 0, pointerEvents: "none" }}
               animate={{ opacity: scrolled ? 1 : 0, pointerEvents: scrolled ? "auto" : "none" }}
               transition={{ duration: 0.4 }}
               onClick={(e) => handleAnchorClick(e, contactNavItem)}
