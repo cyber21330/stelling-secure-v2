@@ -170,6 +170,7 @@ export const Navbar = () => {
                       </span>
                     )}
                     <motion.div
+                      initial={{ opacity: 0 }}
                       animate={{ opacity: isOpen ? 1 : 0 }}
                       transition={{ duration: 0.2 }}
                       style={{
