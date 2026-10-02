@@ -130,13 +130,14 @@ export const Navbar = () => {
                 const isOpen = openDropdown === item.label;
                 // Resaltado: con id (Servicios) sigue el IntersectionObserver
                 // de la Home; sin id (Empresa) depende de la ruta /empresa/.
-                const isHighlighted = (item.id ? active === item.id : isEmpresaRoute) || isOpen;
+                // Abierto (hover/foco) usa el tono de hover de Contacto.
+                const isHighlighted = item.id ? active === item.id : isEmpresaRoute;
                 const triggerStyle = {
                   fontFamily: "'JetBrains Mono', monospace",
                   fontSize: 11,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase" as const,
-                  color: isHighlighted ? "var(--shield)" : "var(--muted)",
+                  color: isHighlighted ? "var(--shield)" : isOpen ? "var(--text)" : "var(--muted)",
                   transition: "color 0.25s ease",
                 };
                 return (
@@ -208,7 +209,7 @@ export const Navbar = () => {
                               transition: "color 0.2s ease",
                               textDecoration: "none",
                             }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--shield)")}
+                            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                             onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted)")}
                           >
                             {sub.label}
