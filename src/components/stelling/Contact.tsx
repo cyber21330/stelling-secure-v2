@@ -95,8 +95,23 @@ export const Contact = () => {
         setTurnstileToken(null);
         turnstileRef.current?.reset();
       } else {
-        const err = await res.json() as { error: string };
-        toast.error(err.error || "Error al enviar. Escríbenos a hola@stellingsecure.com");
+        // Mensajes claros según el estado de la respuesta
+        const porEstado: Record<number, string> = {
+          400: "Revisa los datos del formulario e inténtalo de nuevo.",
+          413: "El mensaje es demasiado largo. Acórtalo e inténtalo de nuevo.",
+          429: "Demasiados intentos. Espera un momento e inténtalo de nuevo.",
+        };
+        let aviso = porEstado[res.status] ?? "";
+        if (!aviso) {
+          // La respuesta puede no ser JSON (p. ej. una página de bloqueo de Cloudflare)
+          try {
+            const err = await res.json() as { error?: string };
+            aviso = err.error || "";
+          } catch {
+            // Sin JSON: se usa el mensaje genérico de abajo
+          }
+        }
+        toast.error(aviso || "Error al enviar. Escríbenos a hola@stellingsecure.com");
         turnstileRef.current?.reset();
       }
     } catch {
