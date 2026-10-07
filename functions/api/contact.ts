@@ -15,8 +15,10 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Caracteres de control (incluye saltos de línea y tabuladores) y separadores Unicode de línea.
 // En campos de una sola línea (nombre, email, empresa) se rechazan: acaban en el asunto del correo.
 const CONTROL_RE = /[\u0000-\u001f\u007f\u2028\u2029]/;
-// En el mensaje se permiten saltos de línea (\n, \r) y tabuladores (\t), pero ningún otro control.
-const CONTROL_SALVO_SALTOS_RE = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u2028\u2029]/;
+// En el mensaje se permiten saltos de línea (\n, \r), tabuladores (\t) y los separadores Unicode
+// de línea (U+2028/U+2029, habituales al pegar texto desde Word o PDF): en el cuerpo del correo
+// son inofensivos. Cualquier otro carácter de control se rechaza.
+const CONTROL_SALVO_SALTOS_RE = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/;
 
 // Devuelve el texto recortado si es una cadena no vacía dentro del límite y sin caracteres
 // de control no permitidos; si no, null
