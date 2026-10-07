@@ -37,7 +37,13 @@ export const onRequestPost: PagesFunction = async ({ request, env }) => {
       return new Response(JSON.stringify({ error: "Petición demasiado grande" }), { status: 413, headers });
     }
 
-    const body: unknown = await request.json();
+    // Un JSON roto es un error del cliente (400), no del servidor (500)
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return datosNoValidos();
+    }
     if (typeof body !== "object" || body === null) {
       return datosNoValidos();
     }
@@ -64,8 +70,10 @@ export const onRequestPost: PagesFunction = async ({ request, env }) => {
         response: tokenL,
       }),
     });
-    const tsData = await tsRes.json() as { success: boolean };
+    const tsData = await tsRes.json() as { success: boolean; "error-codes"?: string[] };
     if (!tsData.success) {
+      // Solo códigos de error de Cloudflare (sin datos del visitante)
+      console.warn("contact: Turnstile rechazó la verificación", tsData["error-codes"] ?? []);
       return new Response(JSON.stringify({ error: "Verificación de seguridad fallida" }), { status: 403, headers });
     }
 
@@ -88,12 +96,16 @@ export const onRequestPost: PagesFunction = async ({ request, env }) => {
     });
 
     if (!ejRes.ok) {
+      // Solo el código de estado: nunca el cuerpo, ni datos del visitante, ni claves
+      console.error("contact: EmailJS respondió con error, estado", ejRes.status);
       return new Response(JSON.stringify({ error: "Error al enviar el mensaje" }), { status: 500, headers });
     }
 
     return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
 
-  } catch {
+  } catch (err) {
+    // Solo el tipo de error: nunca el contenido de la petición
+    console.error("contact: error inesperado", err instanceof Error ? err.name : "desconocido");
     return new Response(JSON.stringify({ error: "Error interno del servidor" }), { status: 500, headers });
   }
 };
