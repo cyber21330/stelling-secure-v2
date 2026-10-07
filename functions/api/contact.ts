@@ -12,11 +12,19 @@ const MAX_BYTES = 10_000;
 // Formato básico de email: algo@algo.algo, sin espacios
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Devuelve el texto recortado si es una cadena no vacía dentro del límite; si no, null
-function textoValido(valor: unknown, maxLen: number): string | null {
+// Caracteres de control (incluye saltos de línea y tabuladores) y separadores Unicode de línea.
+// En campos de una sola línea (nombre, email, empresa) se rechazan: acaban en el asunto del correo.
+const CONTROL_RE = /[\u0000-\u001f\u007f\u2028\u2029]/;
+// En el mensaje se permiten saltos de línea (\n, \r) y tabuladores (\t), pero ningún otro control.
+const CONTROL_SALVO_SALTOS_RE = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u2028\u2029]/;
+
+// Devuelve el texto recortado si es una cadena no vacía dentro del límite y sin caracteres
+// de control no permitidos; si no, null
+function textoValido(valor: unknown, maxLen: number, multilinea = false): string | null {
   if (typeof valor !== "string") return null;
   const limpio = valor.trim();
   if (limpio.length === 0 || limpio.length > maxLen) return null;
+  if ((multilinea ? CONTROL_SALVO_SALTOS_RE : CONTROL_RE).test(limpio)) return null;
   return limpio;
 }
 
@@ -52,12 +60,16 @@ export const onRequestPost: PagesFunction = async ({ request, env }) => {
     // Validación estricta de cada campo (tipo, longitud y formato)
     const nombreL = textoValido(nombre, 100);
     const emailL = textoValido(email, 255);
-    const mensajeL = textoValido(mensaje, 2000);
+    const mensajeL = textoValido(mensaje, 2000, true);
     const tokenL = textoValido(turnstileToken, 2048);
     // La empresa es opcional: si no viene, se usa cadena vacía
     const empresaL = typeof empresa === "string" ? empresa.trim() : "";
 
-    if (!nombreL || !emailL || !mensajeL || !tokenL || empresaL.length > 200 || !EMAIL_RE.test(emailL)) {
+    if (
+      !nombreL || !emailL || !mensajeL || !tokenL ||
+      empresaL.length > 200 || CONTROL_RE.test(empresaL) ||
+      !EMAIL_RE.test(emailL)
+    ) {
       return datosNoValidos();
     }
 
