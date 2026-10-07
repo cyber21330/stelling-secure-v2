@@ -51,13 +51,13 @@ export const onRequestPost: PagesFunction = async ({ request, env }) => {
 
     // Validación estricta de cada campo (tipo, longitud y formato)
     const nombreL = textoValido(nombre, 100);
-    const emailL = textoValido(email, 254);
+    const emailL = textoValido(email, 255);
     const mensajeL = textoValido(mensaje, 2000);
     const tokenL = textoValido(turnstileToken, 2048);
     // La empresa es opcional: si no viene, se usa cadena vacía
     const empresaL = typeof empresa === "string" ? empresa.trim() : "";
 
-    if (!nombreL || !emailL || !mensajeL || !tokenL || empresaL.length > 100 || !EMAIL_RE.test(emailL)) {
+    if (!nombreL || !emailL || !mensajeL || !tokenL || empresaL.length > 200 || !EMAIL_RE.test(emailL)) {
       return datosNoValidos();
     }
 
