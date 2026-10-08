@@ -9,3 +9,6 @@ dist/
 .astro/content-modules.mjs
 .wrangler/
 .astro/
+
+# Secretos locales de Cloudflare Pages Functions (wrangler pages dev): nunca se suben
+.dev.vars
